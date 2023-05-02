@@ -132,9 +132,6 @@ p{
 
 
 /*stile per la sezione dei post*/
-#postUltimi{
-
-}
 
 #postUltimi .postUltimi{
     flex-direction: column;
@@ -211,18 +208,18 @@ p{
 
 /*stile per la sezione delle macchine*/
 
-#macchine .macchine{
+#macchines .macchineContainer{
     flex-direction: column;
     max-width: 1200px;
     margin: 0 auto;
     padding: 100px 0;
 }
 
-#macchine .macchine-header h1{
+#macchines .macchine-header h1{
     margin-bottom: 50px;
 }
 
-#macchine .macchine-all{
+#macchines .macchine-all{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -233,7 +230,7 @@ p{
     border-radius: 10px;
 }
 
-#macchine .macchine-info{
+#macchines .macchine-info{
     padding: 30px;
     flex-basis: 50%;
     height: 100%;
@@ -245,29 +242,29 @@ p{
     color: white;
 }
 
-#macchine .macchine-info h1{
+#macchines .macchine-info h1{
     font-size: 4rem;
     font-weight: 500;
 }
 
-#macchine .macchine-info h2{
+#macchines .macchine-info h2{
     font-size: 1.8rem;
     font-weight: 500;
     margin-top: 10px;
 }
 
-#macchine .macchine-info p{
+#macchines .macchine-info p{
     color: white;
 }
 
-#macchine .macchine-img{
+#macchines .macchine-img{
     flex-basis: 50%;
     height: 300px;
     overflow: hidden;
     position: relative;
 }
 
-#macchine .macchine-img::after{
+#macchines .macchine-img::after{
     content: '';
     position: absolute;
     left: 0;
@@ -278,7 +275,11 @@ p{
     opacity: .7;
 }
 
-#macchine .macchine-item:hover .macchine-img img{
+#macchines .macchine-img img{
+    transition: 0.3s ease transform;
+}
+
+#macchines .macchine-item:hover .macchine-img img{
     transform: scale(1,1);
 }
 

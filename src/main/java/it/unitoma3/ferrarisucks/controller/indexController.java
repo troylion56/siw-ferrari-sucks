@@ -13,5 +13,10 @@ public class indexController {
         return "registrazioneAccedi.html";
     }
 
+    @GetMapping("/post")
+    public String pagPost(Model model){
+        return "post.html";
+    }
+
 
 }

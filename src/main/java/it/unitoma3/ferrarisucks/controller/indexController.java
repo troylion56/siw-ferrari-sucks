@@ -18,5 +18,10 @@ public class indexController {
         return "post.html";
     }
 
+    @GetMapping("/index")
+    public String pagPrinc(Model model){
+        return "index.html";
+    }
+
 
 }

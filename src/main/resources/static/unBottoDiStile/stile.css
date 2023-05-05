@@ -258,26 +258,26 @@ p {
 
 /* End Hero Section */
 
-/* Services Section */
-#services .services {
+/* post Section */
+#post .post {
 	flex-direction: column;
 	text-align: center;
 	max-width: 1500px;
 	margin: 0 auto;
 	padding: 100px 0;
 }
-#services .service-top {
+#post .sezioneSopraPost {
 	max-width: 500px;
 	margin: 0 auto;
 }
-#services .service-bottom {
+#post .spazioTuttiPost {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-wrap: wrap;
 	margin-top: 50px;
 }
-#services .service-item {
+#post .PostSingolo {
 	flex-basis: 80%;
 	display: flex;
 	align-items: flex-start;
@@ -292,7 +292,7 @@ p {
 	z-index: 1;
 	overflow: hidden;
 }
-#services .service-item::after {
+#post .PostSingolo::after {
 	content: '';
 	position: absolute;
 	left: 0;
@@ -303,22 +303,23 @@ p {
 	opacity: 0.9;
 	z-index: -1;
 }
-#services .service-bottom .icon {
+#post .spazioTuttiPost .icon {
 	height: 80px;
 	width: 80px;
 	margin-bottom: 20px;
 }
-#services .service-item h2 {
+#post .PostSingolo h2 {
 	font-size: 2rem;
 	color: white;
 	margin-bottom: 10px;
 	text-transform: uppercase;
 }
-#services .service-item p {
+#post .PostSingolo p {
 	color: white;
 	text-align: left;
 }
-/* End Services Section */
+/* End post Section */
+
 /* macchineFallimentari section */
 #macchineFallimentari .macchineFallimentari {
 	flex-direction: column;
@@ -335,7 +336,7 @@ p {
 	justify-content: center;
 	flex-direction: column;
 }
-#macchineFallimentari .project-item {
+#macchineFallimentari .ContenitoreMacchinaDescrzioneSingola {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -345,7 +346,7 @@ p {
 	overflow: hidden;
 	border-radius: 10px;
 }
-#macchineFallimentari .project-info {
+#macchineFallimentari .descrizioneDellaMacchina {
 	padding: 30px;
 	flex-basis: 50%;
 	height: 100%;
@@ -356,25 +357,25 @@ p {
 	background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
 	color: white;
 }
-#macchineFallimentari .project-info h1 {
+#macchineFallimentari .descrizioneDellaMacchina h1 {
 	font-size: 4rem;
 	font-weight: 500;
 }
-#macchineFallimentari .project-info h2 {
+#macchineFallimentari .descrizioneDellaMacchina h2 {
 	font-size: 1.8rem;
 	font-weight: 500;
 	margin-top: 10px;
 }
-#macchineFallimentari .project-info p {
+#macchineFallimentari .descrizioneDellaMacchina p {
 	color: white;
 }
-#macchineFallimentari .project-img {
+#macchineFallimentari .ImgDellaMacchina {
 	flex-basis: 50%;
 	height: 300px;
 	overflow: hidden;
 	position: relative;
 }
-#macchineFallimentari .project-img:after {
+#macchineFallimentari .ImgDellaMacchina:after {
 	content: '';
 	position: absolute;
 	left: 0;
@@ -384,10 +385,10 @@ p {
 	background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
 	opacity: 0.7;
 }
-#macchineFallimentari .project-img img {
+#macchineFallimentari .ImgDellaMacchina img {
 	transition: 0.3s ease transform;
 }
-#macchineFallimentari .project-item:hover .project-img img {
+#macchineFallimentari .ContenitoreMacchinaDescrzioneSingola:hover .ImgDellaMacchina img {
 	transform: scale(1.1);
 }
 /* End macchineFallimentari section */
@@ -483,32 +484,32 @@ p {
 	/* End Hero */
 
 	/* strategie Section */
-	#strategie .service-bottom .service-item {
+	#post .spazioTuttiPost .PostSingolo {
 		flex-basis: 45%;
 		margin: 2.5%;
 	}
 	/* End strategie Section */
 
-	/* Project */
-	#macchineFallimentari .project-item {
+	/* Macchine */
+	#macchineFallimentari .ContenitoreMacchinaDescrzioneSingola {
 		flex-direction: row;
 	}
-	#macchineFallimentari .project-item:nth-child(even) {
+	#macchineFallimentari .ContenitoreMacchinaDescrzioneSingola:nth-child(even) {
 		flex-direction: row-reverse;
 	}
-	#macchineFallimentari .project-item {
+	#macchineFallimentari .ContenitoreMacchinaDescrzioneSingola {
 		height: 400px;
 		margin: 0;
 		width: 100%;
 		border-radius: 0;
 	}
-	#macchineFallimentari .all-macchineFallimentari .project-info {
+	#macchineFallimentari .all-macchineFallimentari .descrizioneDellaMacchina {
 		height: 100%;
 	}
-	#macchineFallimentari .all-macchineFallimentari .project-img {
+	#macchineFallimentari .all-macchineFallimentari .ImgDellaMacchina {
 		height: 100%;
 	}
-	/* End Project */
+	/* End macchina */
 
 	/* About */
 	#about .about {
@@ -595,7 +596,7 @@ p {
 	}
 	/* End header */
 
-	#strategie .service-bottom .service-item {
+	#post .spazioTuttiPost .PostSingolo {
 		flex-basis: 22%;
 		margin: 1.5%;
 	}

@@ -1,109 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stile.css">
-    <title>Ferrari MasterPlan</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/unBottoDiStile/stile.css">
+  <title>Ferrari MasterMind</title>
 </head>
+
 <body>
-    <!-- Hero section!-->
-    <section id="hero">
-        <div class="hero container">
-            <div>
-                <h1>Ferrari <span></span> </h1>
-                <h1>Master Mind<span></span></h1>
-                <a href="www.instagram.com/scuderiaferrari" type="button" class="cta">Segui il circo</a>
-            </div>
+  <!-- Header -->
+  <section id="header">
+    <div class="header container">
+      <div class="nav-bar">
+        <div class="brand">
+          <a href="#hero">
+            <h1><span>F</span>err<span>a</span>ri</h1>
+          </a>
         </div>
-    </section>
-    <!--fine-->
-
-    <!-- post ultimi section dove compaiono gli ultimi 4 post publicati-->
-    <section id="postUltimi">
-        <div class="post container">
-            <div class="post-top">
-                <h1 class="section-title">P<span>o</span>st</h1>
-                <p>Ultimi post publicati dagli utenti </p>
-                </div>
-                <div class="post-bottom">
-                    <div class="post-item">
-                        <div class="iconaProfiloUtente"><img src="http://img.icons8.com/bubbles/100/000000/services.png"/></div> <!-- immagine del utente-->
-                        <h2>nomeUtente1</h2>
-                        <p>post1</p>
-                    </div>
-                    <div class="post-item">
-                        <div class="iconaProfiloUtente"><img src="http://img.icons8.com/bubbles/100/000000/services.png"/></div> <!-- immagine del utente-->
-                        <h2>nomeUtente2</h2>
-                        <p>post2</p>
-                    </div>
-                    <div class="post-item">
-                        <div class="iconaProfiloUtente"><img src="http://img.icons8.com/bubbles/100/000000/services.png"/></div> <!-- immagine del utente-->
-                        <h2>nomeUtente3</h2>
-                        <p>post3</p>
-                    </div>
-                    <div class="post-item">
-                        <div class="iconaProfiloUtente"><img src="http://img.icons8.com/bubbles/100/000000/services.png"/></div> <!-- immagine del utente-->
-                        <h2>nomeUtente4</h2>>
-                        <p>post4</p>
-                    </div>
-                </div>
-            </div>
-    </section>
-    <!-- fine post section-->
-
-
-    <!--Sezione per le macchine-->              <!--macchine piu vole presenti con le strategia di merda verranno mostrate le prime 4 -->
-    <section id="macchines">
-        <div class="macchineContainer">
-            <div class="macchine-header">
-                <h1 class="section-title">Macchine <span>Fallimentari</span></h1>
-            </div>
-            <div class="macchine-all">
-                <div class="macchine-item">
-                    <div class="macchine-info">
-                        <h1>Nome Macchina1</h1>
-                        <h2>anno</h2>
-                        <p>Descrizione da inserire</p>
-                    </div>
-                    <div class="macchine-img">
-                        <img src="test.jpg" alt="img">
-                    </div>
-                </div>
-                <div class="macchine-item">
-                    <div class="macchine-info">
-                        <h1>Nome Macchina2</h1>
-                        <h2>anno</h2>
-                        <p>Descrizione da inserire</p>
-                    </div>
-                    <div class="macchine-img">
-                        <img src="test.jpg" alt="img">
-                    </div>
-                </div>
-                <div class="macchine-item">
-                    <div class="macchine-info">
-                        <h1>Nome Macchina3</h1>
-                        <h2>anno</h2>
-                        <p>Descrizione da inserire</p>
-                    </div>
-                    <div class="macchine-img">
-                        <img src="test.jpg"alt="img">
-                    </div>
-                </div>
-                <div class="macchine-item">
-                    <div class="macchine-info">
-                        <h1>Nome Macchina4</h1>
-                        <h2>anno</h2>
-                        <p>Descrizione da inserire</p>
-                    </div>
-                    <div class="macchine-img">
-                        <img src="test.jpg">
-                    </div>
-                </div>
-            </div>
+        <div class="nav-list">
+          <div class="hamburger">
+            <div class="bar"></div>
+          </div>
+          <ul>
+            <li><a href="#hero" data-after="Home">Home</a></li>
+            <li><a href="#stategie" data-after="Service">stategie</a></li>
+            <li><a href="#macchineFallimentari" data-after="macchineFallimentari">macchineFallimentari</a></li>
+          </ul>
         </div>
-    </section>
-    <!--END-->
+      </div>
+    </div>
+  </section>
+  <!-- End Header -->
+
+  <!-- Hero Section  -->
+  <section id="hero">
+    <div class="hero container">
+      <div>
+        <h1>Ferrari <span></span></h1>
+        <h1>MasterMind <span></span></h1>
+        <a href="www.google.com" type="button" class="cta">Segui il circo</a>
+      </div>
+    </div>
+  </section>
+  <!-- End Hero Section  -->
+
+<!-- Service Section -->
+<section id="services">
+  <div class="services container">
+    <div class="service-top">
+      <h1 class="section-title">P<span>o</span>st</h1>
+      <p>Ultimi 4 post pupubblicati dagli utenti</p>
+    </div>
+    <div class="service-bottom">
+      <div class="service-item">
+        <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/services.png" /></div> <!--icona profilo 1-->
+        <h2>NomeUtente1</h2>
+        <p>stategia1</p>
+      </div>
+      <div class="service-item">
+        <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/services.png" /></div>
+        <h2>NomeUtente2</h2>
+        <p>strategia2</p>
+      </div>
+      <div class="service-item">
+        <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/services.png" /></div>
+        <h2>NomeUtente3</h2>
+        <p>strategia3</p>
+      </div>
+      <div class="service-item">
+        <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/services.png" /></div>
+        <h2>NomeUtente4</h2>
+        <p>strategia4</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Service Section -->
+
+
+  <!-- macchineFallimentari Section -->
+  <section id="macchineFallimentari">
+    <div class="macchineFallimentari container">
+      <div class="macchineFallimentari-header">
+        <h1 class="section-title">Strategie <span>Fallimentari</span></h1>
+      </div>
+      <div class="all-macchineFallimentari">
+        <div class="project-item">
+          <div class="project-info">
+            <h1>Macchina Con Piu insulti1</h1>
+            <h2>Anno</h2>
+            <p>Descrizione</p>
+          </div>
+          <div class="project-img">
+            <img src="/img/testMacchine.jpg" alt="img">
+          </div>
+        </div>
+        <div class="project-item">
+          <div class="project-info">
+            <h1>Macchina Con Piu insulti2</h1>
+            <h2>Anno</h2>
+            <p>Descrizione</p>
+          </div>
+          <div class="project-img">
+            <img src="/img/testMacchine.jpg" alt="img">
+          </div>
+        </div>
+        <div class="project-item">
+          <div class="project-info">
+            <h1>Macchina Con Piu insulti3</h1>
+            <h2>Anno</h2>
+            <p>Descrizione</p>
+          </div>
+          <div class="project-img">
+            <img src="/img/testMacchine.jpg" alt="img">
+          </div>
+        </div>
+        <div class="project-item">
+          <div class="project-info">
+            <h1>Macchina Con Piu insulti4</h1>
+            <h2>Anno</h2>
+            <p>Descrizione</p>
+          </div>
+          <div class="project-img">
+            <img src="/img/testMacchine.jpg" alt="img">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End macchineFallimentari Section -->
+
+  <!-- Footer -->
+  <section id="footer">
+    <div class="footer container">
+      <div class="brand">
+        <h1><span>T</span>ony <span>T</span>roy</h1>
+      </div>
+      <h2>sometimes you just have to like the stamp and send it</h2>
+      <div class="social-icon">
+        <div class="social-item">
+          <a href="#"><img src="https://img.icons8.com/bubbles/100/000000/facebook-new.png" /></a>
+        </div>
+        <div class="social-item">
+          <a href="#"><img src="https://img.icons8.com/bubbles/100/000000/instagram-new.png" /></a>
+        </div>
+        <div class="social-item">
+          <a href="#"><img src="https://img.icons8.com/bubbles/100/000000/twitter.png" /></a>
+        </div>
+        <div class="social-item">
+          <a href="#"><img src="https://img.icons8.com/bubbles/100/000000/behance.png" /></a>
+        </div>
+      </div>
+      <p>tu tu tu tu tu tu </p>
+    </div>
+  </section>
+  <!-- End Footer -->
+  <script src="./app.js"></script>
 </body>
+
 </html>

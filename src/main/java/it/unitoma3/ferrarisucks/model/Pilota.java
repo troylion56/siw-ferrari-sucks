@@ -1,4 +1,4 @@
-package it.unitoma3.ferrarisucks.siwferrarisucks.model;
+package it.unitoma3.ferrarisucks.model;
 
 import java.util.List;
 

@@ -1,15 +1,144 @@
 @import 'https://fonts.googleapis.com/css?family=Montserrat:300, 400, 700&display=swap';
 
-*
-{
+
+/* Header section */
+#header {
+	position: fixed;
+	z-index: 1000;
+	left: 0;
+	top: 0;
+	width: 100vw;
+	height: auto;
+}
+#header .header {
+	min-height: 8vh;
+	background-color: rgba(31, 30, 30, 0.24);
+	transition: 0.3s ease background-color;
+}
+#header .nav-bar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	height: 100%;
+	max-width: 1300px;
+	padding: 0 10px;
+}
+#header .nav-list ul {
+	list-style: none;
+	position: absolute;
+	background-color: rgb(31, 30, 30);
+	width: 100vw;
+	height: 100vh;
+	left: 100%;
+	top: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	z-index: 1;
+	overflow-x: hidden;
+	transition: 0.5s ease left;
+}
+#header .nav-list ul.active {
+	left: 0%;
+}
+#header .nav-list ul a {
+	font-size: 2.5rem;
+	font-weight: 500;
+	letter-spacing: 0.2rem;
+	text-decoration: none;
+	color: white;
+	text-transform: uppercase;
+	padding: 20px;
+	display: block;
+}
+#header .nav-list ul a::after {
+	content: attr(data-after);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(0);
+	color: rgba(240, 248, 255, 0.021);
+	font-size: 13rem;
+	letter-spacing: 50px;
+	z-index: -1;
+	transition: 0.3s ease letter-spacing;
+}
+#header .nav-list ul li:hover a::after {
+	transform: translate(-50%, -50%) scale(1);
+	letter-spacing: initial;
+}
+#header .nav-list ul li:hover a {
+	color: crimson;
+}
+#header .hamburger {
+	height: 60px;
+	width: 60px;
+	display: inline-block;
+	border: 3px solid white;
+	border-radius: 50%;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 100;
+	cursor: pointer;
+	transform: scale(0.8);
+	margin-right: 20px;
+}
+#header .hamburger:after {
+	position: absolute;
+	content: '';
+	height: 100%;
+	width: 100%;
+	border-radius: 50%;
+	border: 3px solid white;
+	animation: hamburger_puls 1s ease infinite;
+}
+#header .hamburger .bar {
+	height: 2px;
+	width: 30px;
+	position: relative;
+	background-color: white;
+	z-index: -1;
+}
+#header .hamburger .bar::after,
+#header .hamburger .bar::before {
+	content: '';
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	background-color: white;
+	transition: 0.3s ease;
+	transition-property: top, bottom;
+}
+#header .hamburger .bar::after {
+	top: 8px;
+}
+#header .hamburger .bar::before {
+	bottom: 8px;
+}
+#header .hamburger.active .bar::before {
+	bottom: 0;
+}
+#header .hamburger.active .bar::after {
+	top: 0;
+}
+/* End Header section */
+
+
+
+
+#boxAccedi{
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 	font-family: 'Montserrat', sans-serif;
 }
 
-body
-{ 
+#boxAccedi { 
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -17,7 +146,7 @@ body
 	background: #23242a;
 } 
 
-.box{
+#boxAccedi .box{
 	position: relative;
 	width: 380px;
 	height: 420px;
@@ -26,7 +155,7 @@ body
 	overflow: hidden;
 }
 
-.box::before{
+#boxAccedi .box::before{
 	content: '';
 	position: absolute;
 	top: -50%;
@@ -47,7 +176,7 @@ body
 	}
 }
 
-.box form{
+#boxAccedi .box form{
 	position: absolute;
 	inset: 4px;
 	background: #222;
@@ -58,20 +187,20 @@ body
 	flex-direction: column;
 }
 
-.box form h2{
+#boxAccedi .box form h2{
 	color: #fff;
 	font-weight: 500;
 	text-align: center;
 	letter-spacing: 0.1em;
 }
 
-.box form .inputBox{
+#boxAccedi .box form .inputBox{
 	position: relative;
 	width: 300px;
 	margin-top: 35px;
 }
 
-.box form .inputBox input{
+#boxAccedi .box form .inputBox input{
 	position: relative;
 	width: 100%;
 	padding: 20px 10px 10px;
@@ -79,13 +208,13 @@ body
 	outline: none;
 	box-shadow: none;
 	color: #23242a;
-	font-size: 1em;
+	font-size: em;
 	letter-spacing: 0.05em;
 	transition: 0.5s;
 	z-index: 10;
 }
 
-.box form .inputBox span{
+#boxAccedi .box form .inputBox span{
 	position: absolute;
 	left: 0;
 	padding: 20px 0px 10px;
@@ -96,15 +225,15 @@ body
 	transition: 0.5s;
 }
 
-.box form .inputBox input:valid ~ span,
-.box form .inputBox input:focus ~ span
+#boxAccedi .box form .inputBox input:valid ~ span,
+#boxAccedi .box form .inputBox input:focus ~ span
 {
 	color: #fff;
 	font-size: 0.75em;
 	transform: translateY(-34px);
 }
 
-.box form .inputBox i{
+#boxAccedi .box form .inputBox i{
 	position: absolute;
 	left: 0;
 	bottom: 0;
@@ -117,32 +246,32 @@ body
 	pointer-events: none;
 }
 
-.box form .inputBox input:valid ~ i,
-.box form .inputBox input:focus ~ i
+#boxAccedi .box form .inputBox input:valid ~ i,
+#boxAccedi .box form .inputBox input:focus ~ i
 {
 	height: 44px;
 
 }
 
-.box form .links{
+#boxAccedi .box form .links{
 	display: flex;
 	justify-content: space-between;
 }
 
-.box form .links a{
+#boxAccedi .box form .links a{
 	margin: 10px 0;
 	font-size: 0.75em;
 	color: #8f8f8f;
 	text-decoration: none;
 }
 
-.box form .links a:hover,
-.box form .links a:nth-child(2)
+#boxAccedi .box form .links a:hover,
+#boxAccedi .box form .links a:nth-child(2)
 {
 	color: #fff;
 }
 
-.box form input[type="submit"]{
+#boxAccedi .box form input[type="submit"]{
 	border: none;
 	outline: none;
 	padding: 9px 25px;
@@ -155,6 +284,32 @@ body
 	margin-top: 10px;
 }
 
-.box form input[type="submit"]:active{
+#boxAccedi .box form input[type="submit"]:active{
 	opacity: 0.8;
 }
+
+/* Media Query For Desktop */
+@media only screen and (min-width: 1200px) {
+	/* header */
+	#header .hamburger {
+		display: none;
+	}
+	#header .nav-list ul {
+		position: initial;
+		display: block;
+		height: auto;
+		width: fit-content;
+		background-color: transparent;
+	}
+	#header .nav-list ul li {
+		display: inline-block;
+	}
+	#header .nav-list ul li a {
+		font-size: 1.8rem;
+	}
+	#header .nav-list ul a:after {
+		display: none;
+	}
+	/* End header */
+}
+/* End  Media Query For Desktop */

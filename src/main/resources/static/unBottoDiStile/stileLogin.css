@@ -1,65 +1,18 @@
+@import 'https://fonts.googleapis.com/css?family=Montserrat:300, 400, 700&display=swap';
 
+*
+{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Montserrat', sans-serif;
+}
 
-#pannello { 
+body
+{ 
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	min-height: 100vh;
 	background: #23242a;
-}
-
-#pannello .box{
-	position: relative;
-	width: 380px;
-	height: 420px;
-	background: #1c1c1c;
-	border-radius: 8px;
-}
-
-#pannello .box form {
-	position: absolute;
-	inset: 4px;
-	background: #222;
-	padding: 50px 40px;
-	border-radius: 8px;
-	z-index: 2;
-	display: flex;
-	flex-direction: column;
-}
-
-#pannello .box form h2{
-	color: #fff;
-	font-weight: 500;
-	text-align: center;
-	letter-spacing: 0.1em;
-}
-
-@media only screen and (min-width: 1200px) {
-	/* header */
-	#header .hamburger {
-		display: none;
-	}
-	#header .nav-list ul {
-		position: initial;
-		display: block;
-		height: auto;
-		width: fit-content;
-		background-color: transparent;
-	}
-	#header .nav-list ul li {
-		display: inline-block;
-	}
-	#header .nav-list ul li a {
-		font-size: 1.8rem;
-	}
-	#header .nav-list ul a:after {
-		display: none;
-	}
-	/* End header */
-
-	#post .spazioTuttiPost .PostSingolo {
-		flex-basis: 22%;
-		margin: 1.5%;
-	}
-}
-/* End  Media Query For Desktop */
+} 

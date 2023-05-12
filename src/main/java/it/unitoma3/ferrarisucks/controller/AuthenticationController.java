@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import it.unitoma3.siw.model.Credentials;
-import it.unitoma3.siw.model.User;
-import it.unitoma3.siw.service.CredentialsService;
+import it.unitoma3.ferrarisucks.model.Credentials;
+import it.unitoma3.ferrarisucks.model.User;
+import it.unitoma3.ferrarisucks.service.CredentialsService;
 
 @Controller
 public class AuthenticationController {

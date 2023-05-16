@@ -27,6 +27,7 @@ public class AuthenticationController {
 	@GetMapping("/registrazioneAccedi")
     public String registrazioneAccedi(Model model){
         return "registrazioneAccedi.html";
+		
     }
 
 	
@@ -34,12 +35,12 @@ public class AuthenticationController {
 	public String showRegisterForm (Model model) {
 		model.addAttribute("user", new User());
 		model.addAttribute("credentials", new Credentials());
-		return "formRegisterUser";
+		return "registrazioneAccedi.html";
 	}
 	
 	@GetMapping(value = "/login") 
 	public String showLoginForm (Model model) {
-		return "formLogin";
+		return "registrazioneAccedi.html";
 	}
 
 	@GetMapping(value = "/") 

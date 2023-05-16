@@ -4,41 +4,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/unBottoDiStile/stile.css">
-  <title>Ferrari MasterMind</title>
+  <link rel="stylesheet" href="/unBottoDiStile/stileLogin.css">
+  <title>Accedi</title>
 </head>
 
 <body>
-  <!-- Header -->
-  <section id="header">
-    <div class="header container">
-      <div class="nav-bar">
-        <div class="brand">
-          <a href="/index">
-            <h1><span>F</span>err<span>a</span>ri</h1>
-          </a>
-        </div>
-        <div class="nav-list">
-          <div class="hamburger">
-            <div class="bar"></div>
-          </div>
-          <ul>
-            <li><a href="#hero" data-after="Home">Home</a></li>
-            <li><a href="#post" data-after="post">Post</a></li>
-            <li><a href="#macchineFallimentari" data-after="macchineFallimentari">MAcchine</a></li>
-            <li><a href="/registrazioneAccedi" data-after="registrazioneAccedi">Accedi</a></li>
-          </ul>
-        </div>
+  <div class="hero">
+    <div class="form-box">
+      <div class="button-box">
+          <div id="btn"></div>
+          <button type="button" class="toggle-btn" onclick="login()">Accedi</button>
+          <button type="button" class="toggle-btn" onclick="Registrazione()">Registrati</button>
       </div>
-    </div>
-  </section>
-   <!-- Hero Section  -->
-   <section id="hero">
-    <div class="hero container">
-      <div class="form-box">
+      <div class="social-icons">
+        <a href="#"><img src="https://img.icons8.com/bubbles/100/000000/facebook-new.png" /></a>
+        <a href="#"><img src="https://img.icons8.com/bubbles/100/000000/instagram-new.png" /></a>
+        <a href="#"><img src="https://img.icons8.com/bubbles/100/000000/twitter.png" /></a>
+        <a href="#"><img src="https://img.icons8.com/bubbles/100/000000/behance.png" /></a>
       </div>
+      <form id="login" class="input-group">
+        <input type="text" class="input-field" placeholder="Email" required>
+        <input type="text" class="input-field" placeholder="Password" required>
+        <input type="checkbox" class="check-box"><span>Ricorda paswword</span>
+        <button type="submit" class="submit-btn">Accedi</button>
+      </form>
+      <form id="Registrazione" class="input-group">
+        <input type="email" class="input-field" placeholder="Email" required>
+        <input type="text" class="input-field" placeholder="Username" required>
+        <input type="text" class="input-field" placeholder="Password" required>
+        <input type="checkbox" class="check-box"><span>Accetto i termi e condizioni</span>
+        <button type="submit" class="submit-btn">Registrati</button>
+      </form>
     </div>
-  </section>
-  <!-- End Hero Section  -->
+  </div>
 
+  <script>
+    var x= document.getElementById("login");
+    var y= document.getElementById("Registrazione");
+    var z= document.getElementById("btn");
+
+    function Registrazione(){
+      x.style.left="-400px";
+      y.style.left="50px";
+      z.style.left="110px";
+
+    }
+
+    function login(){
+      x.style.left="50px";
+      y.style.left="450px";
+      z.style.left="0px";
+
+    }
+
+  </script>
 </body>
+</html>

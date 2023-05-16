@@ -23,6 +23,12 @@ public class AuthenticationController {
 	
 	@Autowired
 	private CredentialsService credentialsService;
+
+	@GetMapping("/registrazioneAccedi")
+    public String registrazioneAccedi(Model model){
+        return "registrazioneAccedi.html";
+    }
+
 	
 	@GetMapping(value = "/register") 
 	public String showRegisterForm (Model model) {

@@ -37,8 +37,8 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter {
 		http
 		// AUTORIZZAZIONE: qui definiamo chi può accedere a cosa
 		.authorizeRequests()
-		// chiunque (autenticato o no) può accedere alle pagine index, login, register, ai css e alle immagini
-		.antMatchers(HttpMethod.GET, "/", "/index", "/macchinePeggiori", "/registrazioneAccedi", "/unBottoDiStile/**","/templates" ,"/img/**", "favicon.ico").permitAll()
+		// chiunque (autenticato o no) può accedere alle pagine index, login, register, ai css e alle immagini  
+		.antMatchers(HttpMethod.GET, "/","/unBottoDiStile/**","/templates" ,"/img/**" ).permitAll()
 		// chiunque (autenticato o no) può mandare richieste POST al punto di accesso per login e register 
 		.antMatchers(HttpMethod.POST, "/login", "/register").permitAll()
 		// solo gli utenti autenticati con ruolo ADMIN possono accedere a risorse con path /admin/**
@@ -49,7 +49,7 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter {
 		.and().exceptionHandling().accessDeniedPage("/index")
 
 		// LOGIN: qui definiamo come è gestita l'autenticazione
-		// usiamo il protocollo formlogin 
+		// usiamo il protocollo formlogin  //questo va modificato 
 		.and().formLogin()
 		// la pagina di login si trova a /login
 		.loginPage("/login")

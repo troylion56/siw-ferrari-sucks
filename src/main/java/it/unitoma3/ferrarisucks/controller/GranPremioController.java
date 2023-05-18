@@ -22,4 +22,9 @@ public class GranPremioController {
         return "post.html";
     }
 
+    @GetMapping("/creaPost")
+    public String pagCreaPost(Model model){
+        return "creaPost.html";
+    }
+
 }

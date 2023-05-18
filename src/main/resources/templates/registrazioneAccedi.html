@@ -28,10 +28,10 @@
         <input type="checkbox" class="check-box"><span>Ricorda paswword</span>
         <button type="submit" class="submit-btn">Accedi</button>
       </form>
-      <form id="Registrazione" class="input-group">
-        <input type="email" class="input-field" placeholder="Email" required>
-        <input type="text" class="input-field" placeholder="Username" required>
-        <input type="text" class="input-field" placeholder="Password" required>
+      <form id="Registrazione" class="input-group" th:action="@{/register}" method="POST">
+        <input type="email" class="input-field" placeholder="Email" required >
+        <input type="text" class="input-field" placeholder="Username" required >
+        <input type="text" class="input-field" placeholder="Password" required >
         <input type="checkbox" class="check-box"><span>Accetto i termi e condizioni</span>
         <button type="submit" class="submit-btn">Registrati</button>
       </form>

@@ -32,13 +32,14 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter {
 	 * Questo metodo contiene le impostazioni della configurazione
 	 * di autenticatzione e autorizzazione.
 	 */
+	/* 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 		// AUTORIZZAZIONE: qui definiamo chi può accedere a cosa
 		.authorizeRequests()
 		// chiunque (autenticato o no) può accedere alle pagine index, login, register, ai css e alle immagini  
-		.antMatchers(HttpMethod.GET, "/", "/index", "/macchinePeggiori", "/registrazioneAccedi", "/unBottoDiStile/**","/post" ,"/img/**", "favicon.ico").permitAll()		// chiunque (autenticato o no) può mandare richieste POST al punto di accesso per login e register 
+		.antMatchers(HttpMethod.GET, "/", "/index", "/macchinePeggiori", "/registrazioneAccedi","/creaPost", "/unBottoDiStile/**","/post" ,"/img/**").permitAll()		// chiunque (autenticato o no) può mandare richieste POST al punto di accesso per login e register 
 		.antMatchers(HttpMethod.POST, "/login", "/register").permitAll()
 		// solo gli utenti autenticati con ruolo ADMIN possono accedere a risorse con path /admin/**
 		.antMatchers(HttpMethod.GET, "/admin/**").hasAnyAuthority(ADMIN_ROLE)
@@ -68,9 +69,9 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter {
 		.clearAuthentication(true).permitAll();
 	}
 
-	/**
+	
 	 * Questo metodo definisce le query SQL per ottenere username e password
-	 */
+	
 	@Override
 	public void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.jdbcAuthentication()
@@ -84,9 +85,9 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter {
 	/**
 	 * Questo metodo definisce il componente "passwordEncoder", 
 	 * usato per criptare e decriptare la password nella sorgente dati.
-	 */
+	 
 	@Bean
 	PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
-	}
+	}*/
 }

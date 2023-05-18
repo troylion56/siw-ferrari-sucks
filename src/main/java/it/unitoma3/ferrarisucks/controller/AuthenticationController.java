@@ -40,9 +40,10 @@ public class AuthenticationController {
 	
 	@GetMapping(value = "/login") 
 	public String showLoginForm (Model model) {
-		return "registrazioneAccedi";
+		return "registrazioneAccedi.html";
 	}
 
+	/*per ora non implementato */
 	@GetMapping(value = "/") 
 	public String index(Model model) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -58,7 +59,9 @@ public class AuthenticationController {
 		}
         return "index.html";
 	}
-		
+
+
+	/*per ora ancora non implementato */	
     @GetMapping(value = "/success")
     public String defaultAfterLogin(Model model) {
         

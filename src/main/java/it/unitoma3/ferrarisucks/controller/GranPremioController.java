@@ -27,4 +27,8 @@ public class GranPremioController {
         return "creaPost.html";
     }
 
+    @GetMapping("/macchine")
+    public String pagTutteMacchine(Model model){
+        return "macchinePeggiori.html";
+    }
 }

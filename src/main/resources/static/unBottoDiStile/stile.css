@@ -34,7 +34,7 @@ p {
 }
 .section-title {
 	font-size: 4rem;
-	font-weight: 300;
+	font-weight: lighter;
 	color: black;
 	margin-bottom: 10px;
 	text-transform: uppercase;
@@ -44,6 +44,63 @@ p {
 .section-title span {
 	color: crimson;
 }
+
+.btn-post{
+	background: none;
+	outline: none;
+	border: none;
+	display: inline-block;
+	position: relative;
+	color: crimson;
+}
+  
+.btn-post::after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	transform: scaleX(0);
+	height: 3px;
+	bottom: 12px;
+	left: 0;
+	background-color: crimson;
+	transform-origin: bottom right;
+	transition: transform 0.25s ease-out;
+}
+  
+.btn-post:hover::after {
+	transform: scaleX(1);
+	transform-origin: bottom left;
+}
+
+.btn-strategie{
+	background: none;
+	outline: none;
+	border: none;
+	display: inline-block;
+	position: relative;
+	color: crimson;
+}
+  
+.btn-strategie::after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	transform: scaleX(0);
+	height: 3px;
+	bottom: 50px;
+	left: 0;
+	background-color: crimson;
+	transform-origin: bottom right;
+	transition: transform 0.25s ease-out;
+}
+  
+.btn-strategie:hover::after {
+	transform: scaleX(1);
+	transform-origin: bottom left;
+}
+
+
+
 
 .cta {
 	display: inline-block;

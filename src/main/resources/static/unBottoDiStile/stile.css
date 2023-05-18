@@ -52,6 +52,7 @@ p {
 	display: inline-block;
 	position: relative;
 	color: crimson;
+	text-decoration: none;
 }
   
 .btn-post::after {
@@ -79,6 +80,7 @@ p {
 	display: inline-block;
 	position: relative;
 	color: crimson;
+	text-decoration: none;
 }
   
 .btn-strategie::after {
@@ -98,9 +100,6 @@ p {
 	transform: scaleX(1);
 	transform-origin: bottom left;
 }
-
-
-
 
 .cta {
 	display: inline-block;

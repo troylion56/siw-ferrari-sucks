@@ -8,6 +8,6 @@ import it.unitoma3.ferrarisucks.model.Credentials;
 
 public interface CredentialsRepository extends CrudRepository<Credentials, Long> {
 
-	public Optional<Credentials> findByEmail(String email);
+	public Optional<Credentials> findByUsername(String username);
 
 }

@@ -17,14 +17,14 @@ import javax.sql.DataSource;
 import static it.unitoma3.ferrarisucks.model.Credentials.ADMIN_ROLE;
 //import static it.uniroma3.siw.model.Credentials.DEFAULT_ROLE;
 
-/*@Configuration
+@Configuration
 @EnableWebSecurity
 public class AuthConfiguration extends WebSecurityConfigurerAdapter {
 
 	/**
 	 * La sorgente dati (che contiene le credenziali) è 
 	 * iniettata automaticamente
-	 
+	 */
 	@Autowired
 	DataSource datasource;
 
@@ -32,14 +32,14 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter {
 	 * Questo metodo contiene le impostazioni della configurazione
 	 * di autenticatzione e autorizzazione.
 	 
-	
+	*/
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 		// AUTORIZZAZIONE: qui definiamo chi può accedere a cosa
 		.authorizeRequests()
 		// chiunque (autenticato o no) può accedere alle pagine index, login, register, ai css e alle immagini  
-		.antMatchers(HttpMethod.GET, "/", "/index", "/macchinePeggiori", "/registrazioneAccedi","/creaPost", "/macchine/", /*per ora è accessibile a tutti  "/unBottoDiStile/**","/post" ,"/img/**").permitAll()		// chiunque (autenticato o no) può mandare richieste POST al punto di accesso per login e register 
+		.antMatchers(HttpMethod.GET, "/", "/index", "/macchinePeggiori", "/registrazioneAccedi","/creaPost", "/macchine/", /*per ora è accessibile a tutti */ "/unBottoDiStile/**","/post" ,"/img/**").permitAll()		// chiunque (autenticato o no) può mandare richieste POST al punto di accesso per login e register 
 		.antMatchers(HttpMethod.POST, "/login", "/register").permitAll()
 		// solo gli utenti autenticati con ruolo ADMIN possono accedere a risorse con path /admin/**
 		.antMatchers(HttpMethod.GET, "/admin/**").hasAnyAuthority(ADMIN_ROLE)
@@ -70,7 +70,7 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter {
 	}
 
 	
-	/*Questo metodo definisce le query SQL per ottenere username e password
+	/*Questo metodo definisce le query SQL per ottenere username e password*/
 	
 	@Override
 	public void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -85,10 +85,9 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter {
 	/**
 	 * Questo metodo definisce il componente "passwordEncoder", 
 	 * usato per criptare e decriptare la password nella sorgente dati.
-	 
+	 */
 	@Bean
 	PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
 }
-*/

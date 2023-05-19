@@ -36,4 +36,10 @@ public class GranPremioController {
     public String pagMacchinaSpecifica(Model model){
         return "macchinaDettaglio.html";
     }
+
+    @GetMapping("/registrazioneAccedi")
+    public String pagAccedi(Model model){
+        return "registrazioneAccedi.html";
+    }
+
 }

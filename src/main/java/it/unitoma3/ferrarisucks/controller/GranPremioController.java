@@ -31,4 +31,9 @@ public class GranPremioController {
     public String pagTutteMacchine(Model model){
         return "macchinePeggiori.html";
     }
+
+    @GetMapping("/macchina/{id}")
+    public String pagMacchinaSpecifica(Model model){
+        return "macchinaDettaglio.html";
+    }
 }

@@ -1,55 +1,67 @@
 package it.unitoma3.ferrarisucks.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import java.util.List;
+
+import javax.persistence.*;
 
 @Entity
+@Table(name = "strategie")
 public class Strategia {
-    
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "strategia_id")
+    private Long strategiaId;
 
-    String Descrizione;
+    @Column(name = "nome")
+    private String nome;
 
-    @ManyToOne       //applicata 
-    private Macchina macchina;
+    @Column(name = "descrizione")
+    private String descrizione;
 
-    public Long getId() {
-        return id;
+    @ManyToMany(mappedBy = "strategie")
+    private List<GranPremio> granPremi;
+
+    public Long getStrategiaId() {
+        return strategiaId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setStrategiaId(Long strategiaId) {
+        this.strategiaId = strategiaId;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getDescrizione() {
-        return Descrizione;
+        return descrizione;
     }
 
     public void setDescrizione(String descrizione) {
-        Descrizione = descrizione;
+        this.descrizione = descrizione;
     }
 
-    public Macchina getMacchina() {
-        return macchina;
+    public List<GranPremio> getGranPremi() {
+        return granPremi;
     }
 
-    public void setMacchina(Macchina macchina) {
-        this.macchina = macchina;
+    public void setGranPremi(List<GranPremio> granPremi) {
+        this.granPremi = granPremi;
     }
 
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((id == null) ? 0 : id.hashCode());
-        result = prime * result + ((Descrizione == null) ? 0 : Descrizione.hashCode());
-        result = prime * result + ((macchina == null) ? 0 : macchina.hashCode());
+        result = prime * result + ((strategiaId == null) ? 0 : strategiaId.hashCode());
+        result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+        result = prime * result + ((descrizione == null) ? 0 : descrizione.hashCode());
+        result = prime * result + ((granPremi == null) ? 0 : granPremi.hashCode());
         return result;
     }
 
@@ -62,22 +74,28 @@ public class Strategia {
         if (getClass() != obj.getClass())
             return false;
         Strategia other = (Strategia) obj;
-        if (id == null) {
-            if (other.id != null)
+        if (strategiaId == null) {
+            if (other.strategiaId != null)
                 return false;
-        } else if (!id.equals(other.id))
+        } else if (!strategiaId.equals(other.strategiaId))
             return false;
-        if (Descrizione == null) {
-            if (other.Descrizione != null)
+        if (nome == null) {
+            if (other.nome != null)
                 return false;
-        } else if (!Descrizione.equals(other.Descrizione))
+        } else if (!nome.equals(other.nome))
             return false;
-        if (macchina == null) {
-            if (other.macchina != null)
+        if (descrizione == null) {
+            if (other.descrizione != null)
                 return false;
-        } else if (!macchina.equals(other.macchina))
+        } else if (!descrizione.equals(other.descrizione))
+            return false;
+        if (granPremi == null) {
+            if (other.granPremi != null)
+                return false;
+        } else if (!granPremi.equals(other.granPremi))
             return false;
         return true;
     }
+
     
 }

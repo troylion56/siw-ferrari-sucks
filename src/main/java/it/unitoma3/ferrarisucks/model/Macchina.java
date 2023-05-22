@@ -1,39 +1,30 @@
 package it.unitoma3.ferrarisucks.model;
+
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 
 @Entity
+@Table(name = "macchine")
 public class Macchina {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    Long id;
-    
-    String modello;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "macchina_id")
+    private Long macchinaId;
 
+    @Column(name = "modello")
+    private String modello;
 
-    @OneToMany(mappedBy = "macchina")
-    private List<Strategia> strategie;
+    @ManyToMany(mappedBy = "macchine")
+    private List<GranPremio> granPremi;
 
-    @ManyToMany     //corre
-    private List<GranPremio> gp;
-
-    @ManyToMany        //guidata da
-    private List <Pilota> p;
-
-    public Long getId() {
-        return id;
+    public Long getMacchinaId() {
+        return macchinaId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setMacchinaId(Long macchinaId) {
+        this.macchinaId = macchinaId;
     }
 
     public String getModello() {
@@ -44,39 +35,21 @@ public class Macchina {
         this.modello = modello;
     }
 
-    public List<Strategia> getStrategie() {
-        return strategie;
+    public List<GranPremio> getGranPremi() {
+        return granPremi;
     }
 
-    public void setStrategie(List<Strategia> strategie) {
-        this.strategie = strategie;
-    }
-
-    public List<GranPremio> getGp() {
-        return gp;
-    }
-
-    public void setGp(List<GranPremio> gp) {
-        this.gp = gp;
-    }
-
-    public List<Pilota> getP() {
-        return p;
-    }
-
-    public void setP(List<Pilota> p) {
-        this.p = p;
+    public void setGranPremi(List<GranPremio> granPremi) {
+        this.granPremi = granPremi;
     }
 
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((id == null) ? 0 : id.hashCode());
+        result = prime * result + ((macchinaId == null) ? 0 : macchinaId.hashCode());
         result = prime * result + ((modello == null) ? 0 : modello.hashCode());
-        result = prime * result + ((strategie == null) ? 0 : strategie.hashCode());
-        result = prime * result + ((gp == null) ? 0 : gp.hashCode());
-        result = prime * result + ((p == null) ? 0 : p.hashCode());
+        result = prime * result + ((granPremi == null) ? 0 : granPremi.hashCode());
         return result;
     }
 
@@ -89,34 +62,26 @@ public class Macchina {
         if (getClass() != obj.getClass())
             return false;
         Macchina other = (Macchina) obj;
-        if (id == null) {
-            if (other.id != null)
+        if (macchinaId == null) {
+            if (other.macchinaId != null)
                 return false;
-        } else if (!id.equals(other.id))
+        } else if (!macchinaId.equals(other.macchinaId))
             return false;
         if (modello == null) {
             if (other.modello != null)
                 return false;
         } else if (!modello.equals(other.modello))
             return false;
-        if (strategie == null) {
-            if (other.strategie != null)
+        if (granPremi == null) {
+            if (other.granPremi != null)
                 return false;
-        } else if (!strategie.equals(other.strategie))
-            return false;
-        if (gp == null) {
-            if (other.gp != null)
-                return false;
-        } else if (!gp.equals(other.gp))
-            return false;
-        if (p == null) {
-            if (other.p != null)
-                return false;
-        } else if (!p.equals(other.p))
+        } else if (!granPremi.equals(other.granPremi))
             return false;
         return true;
     }
+
     
+
     
     
 }

@@ -1,86 +1,83 @@
 package it.unitoma3.ferrarisucks.model;
 
+import javax.persistence.Entity;
+
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "piloti")
 public class Pilota {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    Long id;
-    String nome;
-    String cognome;
-    int numeroPilota;
-    @ManyToMany(mappedBy = "p")
-    private List<Macchina> mcc;
-    
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "pilota_id")
+    private Long pilotaId;
 
-    public Long getId() {
-        return id;
+    @Column(name = "nome")
+    private String nome;
+
+    @Column(name = "cognome")
+    private String cognome;
+
+    @Column(name = "nazionalita")
+    private String nazionalita;
+
+    @ManyToMany(mappedBy = "piloti")
+    private List<GranPremio> granPremi;
+
+    public Long getPilotaId() {
+        return pilotaId;
     }
 
-
-    public void setId(Long id) {
-        this.id = id;
+    public void setPilotaId(Long pilotaId) {
+        this.pilotaId = pilotaId;
     }
-
 
     public String getNome() {
         return nome;
     }
 
-
     public void setNome(String nome) {
         this.nome = nome;
     }
-
 
     public String getCognome() {
         return cognome;
     }
 
-
     public void setCognome(String cognome) {
         this.cognome = cognome;
     }
 
-
-    public int getNumeroPilota() {
-        return numeroPilota;
+    public String getNazionalita() {
+        return nazionalita;
     }
 
-
-    public void setNumeroPilota(int numeroPilota) {
-        this.numeroPilota = numeroPilota;
+    public void setNazionalita(String nazionalita) {
+        this.nazionalita = nazionalita;
     }
 
-
-    public List<Macchina> getMcc() {
-        return mcc;
+    public List<GranPremio> getGranPremi() {
+        return granPremi;
     }
 
-
-    public void setMcc(List<Macchina> mcc) {
-        this.mcc = mcc;
+    public void setGranPremi(List<GranPremio> granPremi) {
+        this.granPremi = granPremi;
     }
+
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((id == null) ? 0 : id.hashCode());
+        result = prime * result + ((pilotaId == null) ? 0 : pilotaId.hashCode());
         result = prime * result + ((nome == null) ? 0 : nome.hashCode());
         result = prime * result + ((cognome == null) ? 0 : cognome.hashCode());
-        result = prime * result + numeroPilota;
-        result = prime * result + ((mcc == null) ? 0 : mcc.hashCode());
+        result = prime * result + ((nazionalita == null) ? 0 : nazionalita.hashCode());
+        result = prime * result + ((granPremi == null) ? 0 : granPremi.hashCode());
         return result;
     }
-
 
     @Override
     public boolean equals(Object obj) {
@@ -91,10 +88,10 @@ public class Pilota {
         if (getClass() != obj.getClass())
             return false;
         Pilota other = (Pilota) obj;
-        if (id == null) {
-            if (other.id != null)
+        if (pilotaId == null) {
+            if (other.pilotaId != null)
                 return false;
-        } else if (!id.equals(other.id))
+        } else if (!pilotaId.equals(other.pilotaId))
             return false;
         if (nome == null) {
             if (other.nome != null)
@@ -106,15 +103,18 @@ public class Pilota {
                 return false;
         } else if (!cognome.equals(other.cognome))
             return false;
-        if (numeroPilota != other.numeroPilota)
-            return false;
-        if (mcc == null) {
-            if (other.mcc != null)
+        if (nazionalita == null) {
+            if (other.nazionalita != null)
                 return false;
-        } else if (!mcc.equals(other.mcc))
+        } else if (!nazionalita.equals(other.nazionalita))
+            return false;
+        if (granPremi == null) {
+            if (other.granPremi != null)
+                return false;
+        } else if (!granPremi.equals(other.granPremi))
             return false;
         return true;
     }
 
-
+    
 }

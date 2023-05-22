@@ -8,33 +8,33 @@
 </head>    
     <body>
             <h1>Aggiungi un post</h1>
-            <form>
+            <form th:action="@{/salva-dati}" method="POST" th: object="${strategia}">
                 <div>
-                    <label for="nome">nome:</label> <span><input required/></span>
+                    <label for="nome">nome:</label> <span><input required type="text" th:field="${strategia.nome}" /></span>
                 </div>
         
                 <div>
-                    <label for="anno">anno:</label> <span><input required /></span>
+                    <label for="anno">descrizione:</label> <span><input required /></span>
                 </div>
         
                 <div>
-                    <label for="nazione">nazione:</label> <span><input required /></span>
+                    <label for="nazione">granPremi:</label> <span><input  /></span>
                 </div>
               
                 <div>
-                    <label for="macchina">macchina:</label> <span><input required /></span>
+                    <label for="macchina">nome Pilota:</label> <span><input  /></span>
                 </div>
               
                <div>
-                    <label for="modello">modello:</label> <span><input /></span>
+                    <label for="modello">cognome Pilota:</label> <span><input /></span>
                 </div>
               
                <div>
-                    <label for="pilota">pilota:</label> <span><input  /></span>
+                    <label for="pilota">nazionalita Pilota:</label> <span><input  /></span>
                 </div>
               
                <div>
-                    <label for="nomePilota">nomePilota:</label> <span><input  /></span>
+                    <label for="nomePilota">modello:</label> <span><input  /></span>
                 </div>
               
                <div>
@@ -42,13 +42,17 @@
                 </div>
               
                <div>
-                    <label for="macchina">numero:</label> <span><input  /></span>
+                    <label for="macchina">circuito:</label> <span><input  /></span>
                 </div>
               
                <div>
-                    <label for="descrizione">descrizione :</label> <span><input /></span>
+                    <label for="descrizione">data :</label> <span><input /></span>
                 </div>
                 <div>
+                    <div>
+                        <label for="descrizione">luogo :</label> <span><input /></span>
+                    </div>
+                    <div>
                     <span><button type="submit">Conferma</button></span>
                 </div>
             </form>

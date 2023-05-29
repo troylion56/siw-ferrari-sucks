@@ -1,64 +1,65 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>
-		nuovo post
-	</title>
-	<link rel="stylesheet" href="/unBottoDiStile/stileCreaPost.css" />
-</head>    
+    <head>
+        <title>
+            nuovo post
+        </title>
+        <link rel="stylesheet" href="/unBottoDiStile/stileCreaPost.css" />
+    </head>    
     <body>
-            <h1>Aggiungi un post</h1>
-            <form th:action="@{/salva-dati}" method="POST" th: object="${strategia}">
-                <div>
-                    <label for="nome">nome:</label> <span><input required type="text" th:field="${strategia.nome}" /></span>
-                </div>
-        
-                <div>
-                    <label for="anno">descrizione:</label> <span><input/></span>
-                </div>
-        
-                <div>
-                    <label for="nazione">granPremi:</label> <span><input  /></span>
-                </div>
+      
+   <!-- Header -->
+  <section id="header">
+    <div class="header container">
+      <div class="nav-bar">
+        <div class="brand">
+          <a href="#hero">
+            <h1><span>F</span>err<span>a</span>ri</h1>
+          </a>
+        </div>
+        <div class="nav-list">
+          <div class="hamburger">
+            <div class="bar"></div>
+          </div>
+          <ul>
+            <li><a href="#hero" data-after="Home">Home</a></li>
+            <li><a href="#post" data-after="post">Post</a></li>
+            <li><a href="#macchineFallimentari" data-after="macchineFallimentari">MAcchine</a></li>
+            <li><a href="/registrazioneAccedi" data-after="registrazioneAccedi">Accedi</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Header -->
+      
+    <!-- Hero Section  -->
+  <section id="hero">
+    <div class="hero container">
+
+  <!-- End Hero Section  -->
+          <h1 id="aggiungi-post"> <span class=rosso>A</span>GGIUNGI UN <span class=rosso>P</span>OST</h1>
+      
+            <form id="form-post" th:action="@{/salva-dati}" method="POST" th: object="${strategia}">
+                <span id="campi-form"><span class=rosso> U</span>tente</span>
+                    <div><input type="text" id="myInput" placeholder="username" oninput="removePlaceholder()" /></div>
               
-                <div>
-                    <label for="macchina">nome Pilota:</label> <span><input  /></span>
-                </div>
+                <span id="campi-form"><span class=rosso>P</span>ilota</span>
+                    <div><input type="text" id="myInput" placeholder="Nome" oninput="removePlaceholder()" /></div>
+                    <div><input type="text" id="myInput" placeholder="Cognome" oninput="removePlaceholder()" /></div>
+                    <div><input type="text" id="myInput" placeholder="Nazionalità" oninput="removePlaceholder()" /></div>
               
-               <div>
-                    <label for="modello">cognome Pilota:</label> <span><input /></span>
-                </div>
+                <span id="campi-form"><span class=rosso>M</span>acchina</span>
+                    <div><input type="text" id="myInput" placeholder="Modello" oninput="removePlaceholder()" /></div>
+                    <div><input type="text" id="myInput" placeholder="Granpremio" oninput="removePlaceholder()" /></div>
+                    <div><input type="text" id="myInput" placeholder="Circuito" oninput="removePlaceholder()" /></div>
+                    <div><input type="date" id="myInput" placeholder="Data" oninput="removePlaceholder()" /></div>
               
-               <div>
-                    <label for="pilota">nazionalita Pilota:</label> <span><input  /></span>
-                </div>
-              
-               <div>
-                    <label for="nomePilota">modello:</label> <span><input  /></span>
-                </div>
-              
-               <div>
-                    <label for="macchina">cognome :</label> <span><input  /></span>
-                </div>
-              
-               <div>
-                    <label for="macchina">circuito:</label> <span><input  /></span>
-                </div>
-              
-               <div>
-                    <label for="descrizione">data :</label> <span><input /></span>
-                </div>
-                <div>
-                    <div>
-                        <label for="descrizione">luogo :</label> <span><input /></span>
-                    </div>
-                    <div>
-                    <span><button type="submit">Conferma</button></span>
+                <span id="campi-form"><span class=rosso>S</span>trategia</span>
+                        <textarea id="descrizione-strategia" placeholder="descrizione" rows="5"></textarea>
+                <div><span><button type="submit" >Conferma</button></span>
                 </div>
             </form>
-        </body>
-        
-        </html>
+          </section>        
     </body>
-    
-    </html>
+</html>

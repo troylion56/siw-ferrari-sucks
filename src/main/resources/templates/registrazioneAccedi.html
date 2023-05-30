@@ -52,15 +52,15 @@
         <a href="#"><img src="https://img.icons8.com/bubbles/100/000000/behance.png" /></a>
       </div>
       <form id="login" class="input-group" >
-        <input type="text" class="input-field" placeholder="Username" required>
+        <input type="text" class="input-field" placeholder="username" required>
         <input type="text" class="input-field" placeholder="Password" required>
         <input type="checkbox" class="check-box"><span>Ricorda paswword</span>
         <button type="submit" class="submit-btn">Accedi</button>
       </form>
-      <form id="Registrazione" class="input-group">
-        <input type="email" class="input-field" placeholder="Email" required >
-        <input type="text" class="input-field" placeholder="Username" required >
-        <input type="text" class="input-field" placeholder="Password" required >
+      <form th:action="@{/register}" method="POST" id="Registrazione" class="input-group">
+        <input type="email" class="input-field" placeholder="Email" required th:field="${user.email}" />
+        <input type="text" class="input-field" placeholder="Username" required th:field="${credentials.username}"/>
+        <input type="text" class="input-field" placeholder="Password" required th:field="${credentials.Password}"/>
         <input type="checkbox" class="check-box"><span>Accetto i termi e condizioni</span>
         <button type="submit" class="submit-btn">Registrati</button>
       </form>

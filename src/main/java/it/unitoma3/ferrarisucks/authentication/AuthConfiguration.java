@@ -51,8 +51,8 @@ import javax.sql.DataSource;
                 .csrf().and().cors().disable()
                 .authorizeHttpRequests()
 //                .requestMatchers("/**").permitAll()
-                // chiunque (autenticato o no) può accedere alle pagine index, login, register, ai css e alle immagini
-                .requestMatchers(HttpMethod.GET,"/","/index","/post","/macchine","/registrazioneAccedi","/unBottoDiStile/**", "/img/**").permitAll()
+                // chiunque (autenticato o no) può accedere alle pagine index, login, register, ai css e alle immagini      togliere creaPost,
+                .requestMatchers(HttpMethod.GET,"/","/index","/post","/macchine","/creaPost","/registrazioneAccedi","/unBottoDiStile/**", "/img/**").permitAll()
         		// chiunque (autenticato o no) può mandare richieste POST al punto di accesso per login e register 
                 .requestMatchers(HttpMethod.POST,"/registrazioneAccedi").permitAll()
                 .requestMatchers(HttpMethod.GET,"/admin/**").hasAnyAuthority(ADMIN_ROLE)

@@ -1,10 +1,8 @@
 package it.unitoma3.ferrarisucks.model;
 
-import javax.persistence.Entity;
-
 import java.util.List;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "piloti")

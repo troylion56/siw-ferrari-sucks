@@ -2,7 +2,7 @@ package it.unitoma3.ferrarisucks.model;
 
 import jakarta.persistence.*;
 
-@Entity
+@Entity 
 @Table(name = "users") // cambiamo nome perchè in postgres user e' una parola riservata
 public class User {
 	@Id

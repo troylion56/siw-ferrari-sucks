@@ -9,12 +9,15 @@ h1{
   font-size: 50px;
   text-align: center;
   margin-top: 0px;
-  margin-bottom: 0px;
+  margin-bottom: 40px;
+}
+
+rosso{
+  color: crimson;
 }
 
 #container-macchine{
   display: flex;
-  flex-direction: column;
   flex-wrap: wrap;
   width: 100%;
   overflow: auto;
@@ -29,16 +32,19 @@ h1{
 
 
 .macchina{
+  padding: 10px;
   position: relative;
   display: inline-block;
   background-color: #ddd;
   padding: 5px;
   height: 200px;
-  width: 80%;
+  width: 45%;
   border-radius: 15px;
   box-sizing: border-box;
   margin-top:5px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
+  margin-right: auto;
+  margin-left: auto;
   box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.3);
 }
 
@@ -47,6 +53,25 @@ h1{
   margin-left: 0px;
   text-align: left;
   border-radius: 15px;
+}
+
+.immagine-macchina{
+  width: 190px;
+  height: 100%;
+  border-radius: 15px;
+  border: none;
+  text-decoration: none;
+  
+  
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrAyycPSwfXg-aBgmaoQ8SUwQsywGMBD59kg&usqp=CAU");
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.immagine-macchina:hover{
+  transform: scale(1.1);
+  box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.3);
 }
 
 .nome-macchina{

@@ -21,4 +21,9 @@ public class MacchinaController {
     public String pagMacchinaSpecifica(Model model){
         return "macchinaDettaglio.html";
     }
+
+    @GetMapping("/macchinaDettaglioTemp")
+    public String PagmacchinaDettaglio (Model model){
+        return "macchinaDettaglio.html";
+    }
 }

@@ -3,55 +3,64 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 20px;
-
 }
 
 h1{
-font-size: 50px;
-text-align: center;
-margin-top: 0px;
-margin-bottom: 0px;
+  font-size: 50px;
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 #container-macchine{
-display: flex;
-flex-direction: column;
-flex-wrap: wrap;
-width: 100%;
-overflow: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  overflow: auto;
+  align-items: center;
 }
 
-anno{
-font-size: 45px;
-margin-left: 50px;
-margin-top: 5px;
+.anno{
+  align-self: flex-start;
+  font-size: 45px;
+  margin-left: 10%;
 }
 
 
 .macchina{
-display: inline-block;
-background-color: #ddd;
-border: 1px solid blue;
-padding: 5px;
-height: 200px;
-width: 100%;
-border-radius: 15px;
-box-sizing: border-box;
-margin-top:5px;
+  position: relative;
+  display: inline-block;
+  background-color: #ddd;
+  padding: 5px;
+  height: 200px;
+  width: 80%;
+  border-radius: 15px;
+  box-sizing: border-box;
+  margin-top:5px;
+  margin-bottom: 20px;
+  box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.3);
 }
 
 .container img{
-max-height: 100%;
-margin-left: 0px;
-text-align: left;
-border-radius: 15px;
-border: 1px solid red;
+  max-height: 100%;
+  margin-left: 0px;
+  text-align: left;
+  border-radius: 15px;
 }
 
 .nome-macchina{
-margin-bottom: 100px;
-margin-left: 100px;
-border: 1px solid red;
+  position: absolute;
+  bottom: auto;
+  left: 50%;
+  font-size: 40px;
+}
+
+.descrizione{
+  position: absolute;
+  font-size: 30px;
+  left: 50%;
+  bottom: 40%;
 }
 
 span.error {

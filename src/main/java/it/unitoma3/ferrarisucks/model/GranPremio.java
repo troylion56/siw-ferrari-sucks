@@ -16,8 +16,8 @@ public class GranPremio {
     @Column(name = "circuito")
     private String circuito;
 
-    @Column(name = "data")
-    private String data;
+    @Column(name = "anno")
+    private Integer anno;
 
     @Column(name = "luogo")
     private String luogo;
@@ -68,13 +68,13 @@ public void setCircuito(String circuito) {
 }
 
 
-public String getData() {
-        return data;
+public Integer getanno() {
+        return anno;
 }
 
 
-public void setData(String data) {
-        this.data = data;
+public void setanno(Integer anno) {
+        this.anno = anno;
 }
 
 
@@ -124,7 +124,7 @@ public int hashCode() {
         int result = 1;
         result = prime * result + ((granPremioId == null) ? 0 : granPremioId.hashCode());
         result = prime * result + ((circuito == null) ? 0 : circuito.hashCode());
-        result = prime * result + ((data == null) ? 0 : data.hashCode());
+        result = prime * result + ((anno == null) ? 0 : anno.hashCode());
         result = prime * result + ((luogo == null) ? 0 : luogo.hashCode());
         result = prime * result + ((piloti == null) ? 0 : piloti.hashCode());
         result = prime * result + ((macchine == null) ? 0 : macchine.hashCode());
@@ -152,10 +152,10 @@ public boolean equals(Object obj) {
                         return false;
         } else if (!circuito.equals(other.circuito))
                 return false;
-        if (data == null) {
-                if (other.data != null)
+        if (anno == null) {
+                if (other.anno != null)
                         return false;
-        } else if (!data.equals(other.data))
+        } else if (!anno.equals(other.anno))
                 return false;
         if (luogo == null) {
                 if (other.luogo != null)

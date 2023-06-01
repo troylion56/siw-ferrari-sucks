@@ -1,5 +1,7 @@
 package it.unitoma3.ferrarisucks.model;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 
 @Entity 
@@ -9,6 +11,9 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 	private String email;
+	
+	@OneToMany(mappedBy = "creatore.0")
+	private List<Strategia> strategiepub;
 
     public Long getId() {
 		return id;
@@ -25,4 +30,5 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 }

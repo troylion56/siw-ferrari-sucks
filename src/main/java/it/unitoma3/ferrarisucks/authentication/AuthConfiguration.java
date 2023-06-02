@@ -52,7 +52,7 @@ import javax.sql.DataSource;
                 .authorizeHttpRequests()
 //                .requestMatchers("/**").permitAll()
                 // chiunque (autenticato o no) può accedere alle pagine index, login, register, ai css e alle immagini      togliere creaPost,
-                .requestMatchers(HttpMethod.GET,"/","/index","/post","/macchine","/creaPost","/registrazioneAccedi","/macchinaDettaglioTemp","/unBottoDiStile/**", "/img/**").permitAll()
+                .requestMatchers(HttpMethod.GET,"/","/index","/post","/creaPost","/macchine","/creaPost","/registrazioneAccedi","/macchinaDettaglioTemp","/unBottoDiStile/**", "/img/**").permitAll()
         		// chiunque (autenticato o no) può mandare richieste POST al punto di accesso per login e register 
                 .requestMatchers(HttpMethod.POST,"/registrazioneAccedi").permitAll()
                 .requestMatchers(HttpMethod.GET,"/admin/**").hasAnyAuthority(ADMIN_ROLE)

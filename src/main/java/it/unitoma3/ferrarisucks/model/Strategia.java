@@ -22,9 +22,6 @@ public class Strategia {
     @ManyToMany(mappedBy = "strategie")
     private List<GranPremio> granPremi;
 
-    @ManyToOne
-    private User creatore;
-
     public Long getStrategiaId() {
         return strategiaId;
     }

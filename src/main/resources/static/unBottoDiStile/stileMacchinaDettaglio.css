@@ -34,7 +34,8 @@ body {
 }
 
 h1{
-    margin-top: 10px;
+    position: relative;
+    margin-top: 20px;
     color: white;
     font-size: 60px;
     -webkit-text-stroke: 1.5px black;
@@ -80,7 +81,7 @@ h1{
     position: absolute;
     bottom: 0px;
     height: fit-content;
-    max-width: 99.5%;
+    max-width: 100%;
     padding: 5px;
     font-size: 20px;
     display: inline-block;

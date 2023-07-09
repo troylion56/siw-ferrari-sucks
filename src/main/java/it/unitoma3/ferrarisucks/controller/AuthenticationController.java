@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import it.unitoma3.ferrarisucks.model.Credentials;
 import it.unitoma3.ferrarisucks.model.User;
 import it.unitoma3.ferrarisucks.service.CredentialsService;
-import jakarta.validation.Valid;
+
+import javax.validation.Valid;
 
 @Controller
 public class AuthenticationController {

@@ -1,6 +1,12 @@
 package it.unitoma3.ferrarisucks.model;
 
-import jakarta.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.CascadeType;
 
 @Entity
 public class Credentials {
@@ -9,10 +15,16 @@ public class Credentials {
 	public static final String ADMIN_ROLE = "ADMIN";
 	
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+	@OneToOne(cascade = CascadeType.ALL)
 	private String username;
+
+	@Column(nullable = false)
 	private String password;
+
+	@Column(nullable = false)
 	private String role;
 
 	@OneToOne(cascade = CascadeType.ALL)
@@ -21,6 +33,7 @@ public class Credentials {
 	public String getUsername() {
 		return username;
 	}
+	
 	
 	public Long getId() {
 		return id;

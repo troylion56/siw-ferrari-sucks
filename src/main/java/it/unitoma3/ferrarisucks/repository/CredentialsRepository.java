@@ -1,13 +1,12 @@
 package it.unitoma3.ferrarisucks.repository;
 
-import java.util.Optional;
-
+import it.unitoma3.ferrarisucks.model.Credentials;
 import org.springframework.data.repository.CrudRepository;
 
-import it.unitoma3.ferrarisucks.model.Credentials;
+import java.util.Optional;
 
-public interface CredentialsRepository extends CrudRepository<Credentials, Long> {
+public interface CredentialsRepository extends CrudRepository<Credentials,Long> {
+    public Optional<Credentials> findByUsername(String username);
 
-	public Optional<Credentials> findByUsername(String username); 
-
+    public boolean existsByUsername(String username);
 }

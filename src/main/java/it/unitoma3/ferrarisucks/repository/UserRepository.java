@@ -1,11 +1,8 @@
 package it.unitoma3.ferrarisucks.repository;
 
+import it.unitoma3.ferrarisucks.model.User;
 import org.springframework.data.repository.CrudRepository;
 
-import it.unitoma3.ferrarisucks.model.User;
-
-import java.util.Optional;
-
-public interface UserRepository extends CrudRepository<User, Long> {
-    Optional<User> findByName(String name);
+public interface UserRepository extends CrudRepository<User,Long> {
+    public boolean existsByEmail(String email);
 }

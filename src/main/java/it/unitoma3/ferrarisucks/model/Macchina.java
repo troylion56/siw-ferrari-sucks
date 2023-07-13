@@ -1,30 +1,39 @@
 package it.unitoma3.ferrarisucks.model;
 
-import java.util.List;
+import java.util.*;
 
 import jakarta.persistence.*;
-
+import jakarta.validation.constraints.*;
 
 @Entity
-@Table(name = "macchine")
 public class Macchina {
+    
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "macchina_id")
-    private Long macchinaId;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
-    @Column(name = "modello")
     private String modello;
 
-    @ManyToMany(mappedBy = "macchine")
-    private List<GranPremio> granPremi;
+    @Min(1950)
+    @Max(2023)
+    private Integer anno;
 
-    public Long getMacchinaId() {
-        return macchinaId;
+    @OneToMany(mappedBy="macchina")
+	private List<Strategia> macchinaInstrategia;
+
+    @OneToOne
+    private Image immagineMaccchina;
+
+    public Macchina(){
+        this.macchinaInstrategia= new LinkedList<>();
     }
 
-    public void setMacchinaId(Long macchinaId) {
-        this.macchinaId = macchinaId;
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getModello() {
@@ -35,53 +44,45 @@ public class Macchina {
         this.modello = modello;
     }
 
-    public List<GranPremio> getGranPremi() {
-        return granPremi;
+    public Integer getAnno() {
+        return anno;
     }
 
-    public void setGranPremi(List<GranPremio> granPremi) {
-        this.granPremi = granPremi;
+    public void setAnno(Integer anno) {
+        this.anno = anno;
     }
+
+    public List<Strategia> getMacchinaInstrategia() {
+        return macchinaInstrategia;
+    }
+
+    public void setMacchinaInstrategia(List<Strategia> macchinaInstrategia) {
+        this.macchinaInstrategia = macchinaInstrategia;
+    }
+
+    public Image getImmagineMaccchina() {
+        return immagineMaccchina;
+    }
+
+    public void setImmagineMaccchina(Image immagineMaccchina) {
+        this.immagineMaccchina = immagineMaccchina;
+    }
+
 
     @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((macchinaId == null) ? 0 : macchinaId.hashCode());
-        result = prime * result + ((modello == null) ? 0 : modello.hashCode());
-        result = prime * result + ((granPremi == null) ? 0 : granPremi.hashCode());
-        return result;
-    }
+	public int hashCode() {
+		return Objects.hash(modello, anno);
+	}
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Macchina other = (Macchina) obj;
-        if (macchinaId == null) {
-            if (other.macchinaId != null)
-                return false;
-        } else if (!macchinaId.equals(other.macchinaId))
-            return false;
-        if (modello == null) {
-            if (other.modello != null)
-                return false;
-        } else if (!modello.equals(other.modello))
-            return false;
-        if (granPremi == null) {
-            if (other.granPremi != null)
-                return false;
-        } else if (!granPremi.equals(other.granPremi))
-            return false;
-        return true;
-    }
-
-    
-
-    
-    
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Macchina other = (Macchina) obj;
+		return Objects.equals(modello, other.modello) && anno==other.anno ;
+	}
 }

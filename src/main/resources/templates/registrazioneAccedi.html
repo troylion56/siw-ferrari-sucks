@@ -51,16 +51,29 @@
         <a href="#"><img src="https://img.icons8.com/bubbles/100/000000/twitter.png" /></a>
         <a href="#"><img src="https://img.icons8.com/bubbles/100/000000/behance.png" /></a>
       </div>
-      <form id="login" class="input-group" >
+
+      
+      <form  id="login" class="input-group" >
         <input type="text" class="input-field" placeholder="username" required>
         <input type="text" class="input-field" placeholder="Password" required>
         <input type="checkbox" class="check-box"><span>Ricorda paswword</span>
         <button type="submit" class="submit-btn">Accedi</button>
       </form>
-      <form th:action="@{/register}" method="POST" id="Registrazione" class="input-group">
+
+
+      <form th:action="@{/register}" method="post" id="Registrazione" class="input-group">
+        <!--input email-->
         <input type="email" class="input-field" placeholder="Email" required th:field="${user.email}" />
+        <span th:if="${#fields.hasErrors('user.email')}" th:errors="${user.email}" th:style="'color:red'"></span>
+
+        <!--input username  -->
         <input type="text" class="input-field" placeholder="Username" required th:field="${credentials.username}"/>
-        <input type="text" class="input-field" placeholder="Password" required th:field="${credentials.Password}"/>
+        <span th:if="${#fields.hasErrors('credentials.username')}" th:errors="${credentials.username}"th:style="'color:red'"></span>
+
+        <!--input password-->
+        <input type="text" class="input-field" placeholder="Password" required th:field="${credentials.password}"/>
+        <span th:if="${#fields.hasErrors('credentials.password')}" th:errors="${credentials.password}"th:style="'color:red'"></span>
+
         <input type="checkbox" class="check-box"><span>Accetto i termi e condizioni</span>
         <button type="submit" class="submit-btn">Registrati</button>
       </form>

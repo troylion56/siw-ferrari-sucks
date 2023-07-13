@@ -1,96 +1,47 @@
 package it.unitoma3.ferrarisucks.model;
 
-import it.unitoma3.ferrarisucks.oauth.AuthenticationProvider;
-
 import jakarta.persistence.*;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
+import jakarta.validation.constraints.NotBlank;
 
-import java.time.LocalDateTime;
-import java.util.Set;
-
+import java.util.Objects;
 
 @Entity
-@Table(name = "users") // cambiamo nome perchè in postgres user e' una parola riservata
+@Table(name = "users")
 public class User {
-	
-	@Id
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-	private String name;
-	private String surname;
-	private String email;
-
-	@CreationTimestamp
-	private LocalDateTime creationTimestamp;
-
-	@UpdateTimestamp
-	private LocalDateTime lastUpdateTimestamp;
-
-	@Enumerated(EnumType.STRING)
-	@Column(name = "auth_provider")
-	private AuthenticationProvider oAuthProvider;
-
-
-	@OneToMany(mappedBy = "author")
-	private Set<Review> reviewSet;
+    @NotBlank
+    private String email;
 
     public Long getId() {
-		return id;
-	}
+        return id;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public String getName() {
-		return name;
-	}
-	
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	public String getSurname() {
-		return surname;
-	}
-	
-	public void setSurname(String surname) {
-		this.surname = surname;
-	}
-	
-	public String getEmail() {
-		return email;
-	}
-	
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public LocalDateTime getCreationTimestamp() {
-		return creationTimestamp;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public void setCreationTimestamp(LocalDateTime creationTimestamp) {
-		this.creationTimestamp = creationTimestamp;
-	}
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(id, user.id) && 
+               Objects.equals(email, user.email);
+    }
 
-	public LocalDateTime getLastUpdateTimestamp() {
-		return lastUpdateTimestamp;
-	}
-
-	public void setLastUpdateTimestamp(LocalDateTime lastUpdateTimestamp) {
-		this.lastUpdateTimestamp = lastUpdateTimestamp;
-	}
-
-	public AuthenticationProvider getoAuthProvider() {
-		return oAuthProvider;
-	}
-
-	public void setoAuthProvider(AuthenticationProvider oAuthProvider) {
-		this.oAuthProvider = oAuthProvider;
-	}
-
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, email);
+    }
 }

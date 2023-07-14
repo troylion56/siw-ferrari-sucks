@@ -10,33 +10,6 @@
 
 <body>
 
-  <!--nav bar-->
-  <div id="header">
-    <div class="header">
-      <div class="nav-bar">
-        <div class="brand">
-          <a href="/index">
-            <h1>Ferrari</h1>
-          </a>
-        </div>
-        <div class="hamburger">
-          <div class="bar"></div>
-        </div>
-        <div class="nav-list">
-          <ul>
-            <li><a href="#hero" data-after="Home">Home</a></li>
-            <li><a href="#post" data-after="post">Post</a></li>
-            <li><a href="#macchineFallimentari" data-after="macchineFallimentari">MAcchine</a></li>
-            <li><a href="/registrazioneAccedi" data-after="registrazioneAccedi">Accedi</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="nav-list-overlay">
-        <!-- Additional content for the overlay if needed -->
-      </div>
-    </div>
-  </div>
-
   <!--continuo-->
   <div class="hero">
     <div class="form-box">
@@ -55,7 +28,7 @@
       
       <form   th:action="@{/login}" method="post" id="login" class="input-group" >
         <input type="text" name="username" class="input-field" placeholder="username" required>
-        <input type="text" name="password" class="input-field" placeholder="Password" required>
+        <input type="password" name="password" class="input-field" placeholder="Password" required>
         <input type="checkbox" class="check-box"><span>Ricorda paswword</span>
         <button type="submit" class="submit-btn">Accedi</button>
       </form>
@@ -71,7 +44,7 @@
         <span th:if="${#fields.hasErrors('credentials.username')}" th:errors="${credentials.username}"th:style="'color:red'"></span>
 
         <!--input password-->
-        <input type="text" class="input-field" placeholder="Password" required th:field="${credentials.password}"/>
+        <input type="password" class="input-field" placeholder="Password" required th:field="${credentials.password}"/>
         <span th:if="${#fields.hasErrors('credentials.password')}" th:errors="${credentials.password}"th:style="'color:red'"></span>
 
         <input type="checkbox" class="check-box"><span>Accetto i termi e condizioni</span>

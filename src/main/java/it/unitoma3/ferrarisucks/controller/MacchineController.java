@@ -5,6 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import org.springframework.ui.Model;
+
+import it.unitoma3.ferrarisucks.model.Macchina;
+import it.unitoma3.ferrarisucks.model.Strategia;
 import it.unitoma3.ferrarisucks.repository.MacchinaRepository;
 
 @Controller
@@ -20,4 +23,12 @@ public class MacchineController {
 		model.addAttribute("macchines", this.macchinaRepository.findAll());
 		return "macchinePeggiori.html";
 	}
+
+
+	@GetMapping("/creaMacchina")
+    public String forNewMacchina(Model model){
+        model.addAttribute("macchina", new Macchina());
+        return "creaMacchina.html";
+    }
+
 }

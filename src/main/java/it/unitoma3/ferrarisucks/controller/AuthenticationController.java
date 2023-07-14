@@ -71,9 +71,9 @@ public class AuthenticationController {
             credentials.setUser(user);
             credentialsService.saveCredentials(credentials);
             model.addAttribute("user", user);
-            return "prova.html";
+            return "index.html";
         }
-        return "prova1.html";
+        return "error.html";
     }
 
 

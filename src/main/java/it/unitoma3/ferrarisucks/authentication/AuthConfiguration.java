@@ -52,7 +52,7 @@ import javax.sql.DataSource;
 //                .requestMatchers("/**").permitAll()
                 // chiunque (autenticato o no) può accedere alle pagine index, login, register, ai css e alle immagini
                 .requestMatchers(HttpMethod.GET,"/index","/","/strategie","/macchine",
-                                        "/strategiaForm","/creaStrategia","/registrazioneAccedi", "/display/image/{id}","/stategia/{id}"
+                                        "/strategiaForm","/creaStrategia","/registrazioneAccedi", "/display/image/{id}","/stategia/{id}","/creaMacchina"
                                                 
                                                 ,"/unBottoDiStile/**", "/img/**").permitAll()
         		// chiunque (autenticato o no) può mandare richieste POST al punto di accesso per login e register 

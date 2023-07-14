@@ -16,7 +16,7 @@ public class StrategiaValidator implements Validator {
 	@Override
 	public void validate(Object o, Errors errors) {
 		Strategia strategia = (Strategia)o;
-		if (strategia.getTitle()!=null && strategiaRepository.existsByNomeAndCircuito(strategia.getTitle(), strategia.getCircuito())) {
+		if (strategia.getNome()!=null && strategiaRepository.existsByNomeAndCircuito(strategia.getNome(), strategia.getCircuito())) {
 			errors.reject("stratgia.duplicate");
 		}
 	}

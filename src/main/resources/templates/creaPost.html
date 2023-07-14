@@ -37,24 +37,36 @@
   <section id="hero">
     <div class="hero container">
 
-  <!-- End Hero Section  -->
+  <!-- End Hero Section  -->v
           <h1 id="aggiungi-post"> <span class=rosso>A</span>GGIUNGI UN <span class=rosso>P</span>OST</h1>
       
-            <form id="form-post" >
+            <form th:action="@{/strategiaForm}" method="POST" enctype="multipart/form-data" th:object="${strategia}"   class="form-post" >
+              <div th:if="${#fields.hasGlobalErrors()}">
+                <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p> 
+              </div>
 
               <div class="form-field">
                 <label>Nome:</label> 
-                <span><input type="text"  /></span>
-                  </span>
+                <span><input type="text" th:field="${strategia.nome}"  /></span>
+                <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+                </span>
               </div> 
           
               <div class="form-field">
                 <label>Circuito:</label> 
-                <span><input type="text" /></span>
+                <span><input type="text" th:field="${strategia.circuito}" /></span>
+                <span th:if="${#fields.hasErrors('circuito')}" th:errors="*{circuito}"></span>
                   </span>
               </div>
 
-                <div><span><button type="submit" >Conferma</button></span>
+              <div class="form-field">
+                <label>Descrizione:</label> 
+                <span><input type="text" th:field="${strategia.descrizione}"/></span>
+                <span th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></span>
+                  </span>
+                <span><input required type="file" name="file"></span>
+                </div>
+                <span><button type="submit" >Conferma</button></span>
                 </div>
             </form>
           </section>        

@@ -13,15 +13,20 @@
     
     <div class="container">
         <h2>Post</h2>
-        <div class="blog-post">
+
+      
+
+
+
+        <div class="blog-post"   th:if="${strategie}">
             <div class="blog-post_img">
-                <img src="/img/testMacchine.jpg"
+                <img th:src="@{'/display/image/' + ${strategie.image.id}}"
                     alt="">
             </div>
             <div class="blog-post_info">
                 <div class="blog-post_date">
-                    <span>NomeTipo</span>
-                    <span>Data pub</span>
+                    <span th:text="${strategie.nome}"></span>
+                    <span th:text="${strategie.circuito} "></span>
                 </div>
                 <h1 class="blog-post_title">Gara</h1>
                 <p class="blog-post_text">
@@ -47,7 +52,7 @@
                 <a href="#" class="blog-post_cta">Di piu</a>
             </div>
         </div>
-        
+    
         
 
     </div>

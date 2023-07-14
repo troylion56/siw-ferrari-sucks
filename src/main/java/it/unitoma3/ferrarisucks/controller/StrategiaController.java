@@ -34,17 +34,28 @@ public class StrategiaController {
 
 
     @GetMapping("/strategie")
-	public String getMovies(Model model) {
+	public String getStrategie(Model model) {
     	model.addAttribute("strategie", this.strategiaService.findAllStrategie());
-    	return "post.html";
+    	return "post.html"; 
 	}
-
-
 
     @GetMapping("/creaStrategia")
     public String formNewStrategia(Model model){
         model.addAttribute("strategia", new Strategia());
         return "creaPost.html";
     }
-    
+
+     
+    @PostMapping("/strategiaForm")
+	public String newStrategia(Model model, @Valid @ModelAttribute("strategia") Strategia startegia, BindingResult bindingResult,
+            @RequestParam("file") MultipartFile image) throws IOException {
+        this.strategiaValidator.validate(startegia, bindingResult);
+        if (!bindingResult.hasErrors()) {
+			this.strategiaService.createStrategia(startegia, image);
+            return this.strategiaService.function(model, startegia, globalController.getUser());
+        } else {
+            return "creaPost.html";
+        }
+    }
+
 }

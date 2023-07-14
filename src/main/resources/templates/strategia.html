@@ -1,0 +1,14 @@
+<html>
+  <head>
+    <title>strategia</title>
+    </head>
+    <body>
+        <h1>Dettagli Film</h1>
+	    <div class="container">
+        <div class="movie-details" th:if="${stategia}">
+        <span class="movie-title" th:text="${stategia.nome}">Up!</span>
+        <span class="movie-year" th:text="${stategia.circuito}">2000</span>
+        <span><img th:src="@{'/display/image/' + ${stategia.image.id}}"></span>
+    </div>
+    </body>
+</html>

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -57,5 +58,12 @@ public class StrategiaController {
             return "creaPost.html";
         }
     }
+
+    @GetMapping("/stategia/{id}")
+	public String getMovie(@PathVariable("id") Long id, Model model) {
+		Strategia movie= strategiaService.findMovieById(id);
+		return this.strategiaService.function(model, movie, this.globalController.getUser());
+	}
+
 
 }

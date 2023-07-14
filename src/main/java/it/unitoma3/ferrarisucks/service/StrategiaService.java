@@ -58,7 +58,7 @@ public class StrategiaService {
             model.addAttribute("hasComment", false);
         model.addAttribute("review", new Commenti());
         model.addAttribute("reviews", movie.getReviews());
-        return "prova.html";    //per ora va qua da modificare 
+        return "strategia.html";    //per ora va qua da modificare 
     }
 
 
@@ -69,5 +69,11 @@ public class StrategiaService {
                 if(rev.getAuthor().equals(author))
                     return true;
         return false;
+    }
+
+
+
+    public Strategia findMovieById(Long id){
+        return this.strategiaRepository.findById(id).orElse(null);
     }
 }

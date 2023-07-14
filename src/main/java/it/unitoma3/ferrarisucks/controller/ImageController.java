@@ -15,7 +15,7 @@ import it.unitoma3.ferrarisucks.repository.ImageRepository;
 
 @Controller
 public class ImageController {
-    @Autowired
+    @Autowired 
     ImageRepository imageRepository;
 
     @GetMapping("/display/image/{id}")

@@ -53,9 +53,9 @@
       </div>
 
       
-      <form  id="login" class="input-group" >
-        <input type="text" class="input-field" placeholder="username" required>
-        <input type="text" class="input-field" placeholder="Password" required>
+      <form   th:action="@{/login}" method="post" id="login" class="input-group" >
+        <input type="text" name="username" class="input-field" placeholder="username" required>
+        <input type="text" name="password" class="input-field" placeholder="Password" required>
         <input type="checkbox" class="check-box"><span>Ricorda paswword</span>
         <button type="submit" class="submit-btn">Accedi</button>
       </form>

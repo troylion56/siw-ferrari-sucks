@@ -36,7 +36,7 @@
     <!-- Hero Section  -->
   <section id="hero">
     <div class="hero container">
-
+ 
   <!-- End Hero Section  -->v
           <h1 id="aggiungi-post"> <span class=rosso>A</span>GGIUNGI UNA <span class=rosso>Macc</span>hina</h1>
       
@@ -53,14 +53,13 @@
               </div> 
           
               <div class="form-field">
-                <label>Circuito:</label> 
+                <label>Anno:</label> 
                 <span><input type="text" th:field="${macchina.anno}" /></span>
                 <span th:if="${#fields.hasErrors('anno')}" th:errors="*{anno}"></span>
                   </span>
-              </div>
-
                 <span><input required type="file" name="file"></span>
                 </div>
+                <div>
                 <span><button type="submit" >Conferma</button></span>
                 </div>
             </form>

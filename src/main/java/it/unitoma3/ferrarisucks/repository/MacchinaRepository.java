@@ -5,6 +5,8 @@ import it.unitoma3.ferrarisucks.model.Macchina;
 
 
 public interface MacchinaRepository extends CrudRepository<Macchina, Long> {
+
+    public boolean existsByModelloAndAnno(String modello, Integer anno);
 }
 
 

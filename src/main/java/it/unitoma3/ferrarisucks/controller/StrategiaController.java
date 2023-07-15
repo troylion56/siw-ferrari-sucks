@@ -13,13 +13,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.ui.Model;
 import it.unitoma3.ferrarisucks.controller.validator.StrategiaValidator;
+import it.unitoma3.ferrarisucks.model.Macchina;
 import it.unitoma3.ferrarisucks.model.Strategia;
+import it.unitoma3.ferrarisucks.repository.MacchinaRepository;
+import it.unitoma3.ferrarisucks.service.MacchinaService;
 import it.unitoma3.ferrarisucks.service.StrategiaService;
 import jakarta.validation.Valid;
 
 @Controller
 public class StrategiaController {
 
+
+    @Autowired
+    private MacchinaRepository macchinaRepository ;
 
     @Autowired 
     private StrategiaValidator strategiaValidator;
@@ -30,6 +36,9 @@ public class StrategiaController {
 
     @Autowired 
 	private StrategiaService strategiaService;
+
+    @Autowired
+    private MacchinaService macchinaService;
 
 
 
@@ -60,10 +69,38 @@ public class StrategiaController {
     }
 
     @GetMapping("/stategia/{id}")
-	public String getMovie(@PathVariable("id") Long id, Model model) {
-		Strategia movie= strategiaService.findMovieById(id);
-		return this.strategiaService.function(model, movie, this.globalController.getUser());
+	public String getStrategia(@PathVariable("id") Long id, Model model) {
+		Strategia strategia= strategiaService.findStrategiaId(id);
+		return this.strategiaService.function(model, strategia, this.globalController.getUser());
 	}
 
 
+
+    @GetMapping(value="/addMacchina/{id}")
+	public String addDirector(@PathVariable("id") Long id, Model model) {
+		model.addAttribute("strategia", macchinaService.findAllMacchine());
+		Strategia macchina= strategiaService.findStrategiaId(id);
+		if(macchina!=null){
+	        model.addAttribute("macchina", macchina);
+		    return "test1.html";
+		}
+		else{
+			return "test2.html";
+		}
+	}
+
+    @GetMapping(value="/setMacchinaToStrategia{machinaId}/{strategiaId}")
+	public String setDirectorToMovie(@PathVariable("machinaId") Long machinaId, @PathVariable("strategiaId") Long strategiaId, Model model) {
+		Strategia movie= this.strategiaService.saveMacchinaToStrategia(strategiaId, machinaId);
+		if(movie!=null){
+			model.addAttribute("movie", movie);
+		return "prova3.html";
+		}
+		else{
+			return "prova4.html";
+		}
+	}
+	
+
+   
 }

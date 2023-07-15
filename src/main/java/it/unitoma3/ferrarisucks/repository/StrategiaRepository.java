@@ -10,4 +10,6 @@ public interface StrategiaRepository extends CrudRepository<Strategia, Long>{
     public List <Strategia> findByCircuito(String nome);
 
     public boolean existsByNomeAndCircuito(String nome, String circuito);
+
+    public Strategia findAllById(Long id);
 }

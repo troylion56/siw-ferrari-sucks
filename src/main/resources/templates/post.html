@@ -14,20 +14,20 @@
     <div  class="container">
         <h2>Post</h2>
 
-        <div th:each="stategia : ${strategie}" class="blog-post"  >
+        <div th:each="strategia : ${strategie}" class="blog-post"  >
             <div class="blog-post_img">
-                <img th:src="@{'/display/image/' + ${stategia.image.id}}"
+                <img th:src="@{'/display/image/' + ${strategia.image.id}}"
                     alt="">
             </div>
             <div class="blog-post_info"> 
                 <div class="blog-post_date">
-                    <span th:text="${stategia.nome}"></span>
-                    <span th:text="${stategia.circuito} "></span>
+                    <span th:text="${strategia.nome}"></span>
+                    <span th:text="${strategia.circuito} "></span>
                 </div>
                 <h1 class="blog-post_title">Gara</h1>
                 <p class="blog-post_text">
                     Descrizione </p>
-                <a th:href="@{'/stategia' + '/' + ${stategia.id}}"  class="blog-post_cta">Di piu</a>        <!--per ora porta a prova-->
+                <a th:href="@{'/stategia' + '/' + ${strategia.id}}"  class="blog-post_cta">Di piu</a>    
                 </div>
             </div>
         

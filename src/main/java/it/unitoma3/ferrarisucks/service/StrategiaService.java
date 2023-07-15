@@ -16,6 +16,7 @@ import it.unitoma3.ferrarisucks.model.Image;
 import it.unitoma3.ferrarisucks.model.Macchina;
 import it.unitoma3.ferrarisucks.model.Strategia;
 import it.unitoma3.ferrarisucks.repository.ImageRepository;
+import it.unitoma3.ferrarisucks.repository.MacchinaRepository;
 import it.unitoma3.ferrarisucks.repository.StrategiaRepository;
 
 
@@ -27,6 +28,8 @@ public class StrategiaService {
 
     @Autowired
     private StrategiaRepository strategiaRepository;
+
+    private MacchinaRepository macchinaRepository;
 
 
     public Iterable<Strategia> findAllStrategie(){
@@ -45,19 +48,19 @@ public class StrategiaService {
 
 
 
-    public String function(Model model,Strategia movie,UserDetails user){
-        Set<Macchina> movieCast = new HashSet<>();
-        movieCast.add(movie.getMacchina()); 
-        movieCast.remove(null);
-        model.addAttribute("movieCast", movieCast);
-        model.addAttribute("movie", movie);
-        model.addAttribute("director", movie.getMacchina());
-        if(user != null && this.alreadyReviewed(movie.getReviews(),user.getUsername()))
+    public String function(Model model,Strategia strategia,UserDetails user){
+        Set<Macchina> macchina = new HashSet<>();
+        macchina.add(strategia.getMacchina()); 
+        macchina.remove(null);
+        model.addAttribute("macchina", macchina);
+        model.addAttribute("strategia", strategia);
+        model.addAttribute("macchinasuStrategia", strategia.getMacchina());
+        if(user != null && this.alreadyReviewed(strategia.getReviews(),user.getUsername()))
             model.addAttribute("hasComment", true);
         else
             model.addAttribute("hasComment", false);
         model.addAttribute("review", new Commenti());
-        model.addAttribute("reviews", movie.getReviews());
+        model.addAttribute("reviews", strategia.getReviews());
         return "strategia.html";    //per ora va qua da modificare 
     }
 
@@ -72,8 +75,28 @@ public class StrategiaService {
     }
 
 
+    public Strategia findStrategiaId(Long id) {
+       return this.strategiaRepository.findAllById(id);
+    }
 
-    public Strategia findMovieById(Long id){
+    public Strategia saveMacchinaToStrategia(Long strategiaId, Long macchinaId){
+        Strategia res= null;
+        Macchina macchina = this.macchinaRepository.findById(macchinaId).orElse(null);
+		Strategia strategia = this.findStrategiaById(strategiaId);
+		if(strategia!=null && macchina!=null){
+			strategia.setMacchina(macchina);
+		this.saveStrategia(strategia);
+        res=strategia;
+		}
+		return res;
+    }
+
+    public Strategia findStrategiaById(Long id){
         return this.strategiaRepository.findById(id).orElse(null);
+    }
+
+
+    public Strategia saveStrategia(Strategia strategia){
+        return this.strategiaRepository.save(strategia);
     }
 }

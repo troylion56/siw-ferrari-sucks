@@ -4,13 +4,14 @@ import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 
 import it.unitoma3.ferrarisucks.controller.validator.Macchinavalidator;
 import it.unitoma3.ferrarisucks.model.Image;
@@ -38,6 +39,8 @@ public class MacchineController {
     @Autowired
     private MacchinaService macchinaService;
 
+    private GlobalController globalController;
+
 	@GetMapping("/creaMacchina")
     public String forNewMacchina(Model model){
         model.addAttribute("macchina", new Macchina());
@@ -46,19 +49,19 @@ public class MacchineController {
 
 
     @PostMapping("/macchinaForm")
-    public String newArtist(Model model, @Valid @ModelAttribute("artist") Macchina artist, BindingResult bindingResult, @RequestParam("file") MultipartFile image) throws IOException {
-        this.macchinavalidator.validate(artist,bindingResult);
+    public String newArtist(Model model, @Valid @ModelAttribute("macchina") Macchina macchina, BindingResult bindingResult, @RequestParam("file") MultipartFile image) throws IOException {
+        this.macchinavalidator.validate(macchina,bindingResult);
         if(!bindingResult.hasErrors()){
             Image picture = new Image(image.getBytes());
             this.imageRepository.save(picture);
-            artist.setImmagineMaccchina(picture);
+            macchina.setImmagineMaccchina(picture);
 
-            this.macchinaRepository.save(artist);
+            this.macchinaRepository.save(macchina);
 
-            model.addAttribute("artist",artist);
-            return "test1.html";
+            model.addAttribute("macchina",macchina);
+            return "macchinaDettaglio.html";
         } else {
-            return "test2.html";
+            return "creaMacchina.html";
         }
     }
 
@@ -71,5 +74,10 @@ public class MacchineController {
 	}
 
 
+    @GetMapping("/macchina/{id}")
+	public String getArtist(@PathVariable("id") Long id, Model model) {
+		model.addAttribute("artist", this.macchinaRepository.findById(id).get());
+		return "macchinaDettaglio.html";
+	}
 
 }

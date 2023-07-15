@@ -1,14 +1,52 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <title>strategia</title>
-    </head>
-    <body>
-        <h1>Dettagli Film</h1>
-	    <div class="container">
-        <div class="movie-details" th:if="${stategia}">
-        <span class="movie-title" th:text="${stategia.nome}">Up!</span>
-        <span class="movie-year" th:text="${stategia.circuito}">2000</span>
-        <span><img th:src="@{'/display/image/' + ${stategia.image.id}}"></span>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Product Card/Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/unBottoDiStile/stileStrategia.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+  </head>
+  <body>
+    
+    <div class = "card-wrapper" th:if="${strategia}">
+      <div class = "card">
+        <!-- card left -->
+        <div class = "product-imgs">
+          <div class = "img-display">
+            <div class = "img-showcase">
+              <img th:src="@{'/display/image/' + ${strategia.image.id}}" alt = "shoe image">
+            </div>
+          </div>
+        </div>
+        <!-- card right -->
+        <div class = "product-content">
+          <h2 class = "product-title"   th:text="${strategia.nome}"></h2>
+          <div class = "product-rating">
+            <i class = "fas fa-star"></i>
+            <i class = "fas fa-star"></i>
+            <i class = "fas fa-star"></i>
+            <i class = "fas fa-star"></i>
+            <i class = "fas fa-star-half-alt"></i>
+            <span>4.7(21)</span>
+          </div>
+
+          <div class = "product-detail">
+            <h2 th:text="${strategia.circuito}"></h2>
+            <p th:text="${strategia.descrizione}"></p>
+            <ul>
+              <li>Color: <span>Black</span></li>
+              <li>Available: <span>in stock</span></li>
+              <li>Category: <span>Shoes</span></li>
+              <li>Shipping Area: <span>All over the world</span></li>
+              <li>Shipping Fee: <span>Free</span></li>
+              <div th:unless="${strategia.macchina}">
+                <a th:href="@{'/addMacchina/' + ${strategia.id}}"  class="edit-link">Aggiungi</a>
+              </div>
+            </ul>
+          </div>
+        </div>
     </div>
-    </body>
+  </body>
 </html>

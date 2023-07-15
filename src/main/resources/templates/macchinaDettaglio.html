@@ -1,34 +1,19 @@
-<!DOCTYPE html>
 <html>
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>dettaglio Macchina</title>
+</head>
+
     <body>
-        <link rel="stylesheet" href="/unBottoDiStile/stileMacchinaDettaglio.css" />
-        <!-- Hero Section  -->
-        <section id="post-section">
-            <h1>nome macchina</h1>
-            <div class="container-post">
-                <div class="post">
-                    <span class="autore">TROYLION56</span>
-                    <span class="pilota">fra martino</span>
-                    <span class="descrizione">la strategia era buona, peccato per il pilota inutile
-                        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-                    </span>
-                </div>
-                
-                <div class="post"><span>testo</span></div>
-                
-                <div class="post"><span>testo</span></div>
-                
-                <div class="post"><span>testo</span></div>
-                
-                <div class="post"><span>testo</span></div>
-                
-                <div class="post"><span>testo</span></div>
-                
-                <div class="post"><span>testo</span></div>
-                
-                <div class="post"><span>testo</span></div>
-                
-            </div>      
-        </section>        
+        <h1>Dettagli MAcchina</h1>
+        <div class="container">
+        <div class="movie-details" th:if="${macchina}">
+            <span class="stategia-title" th:text="${macchina.modello}"></span>
+            <span class="stategia-circuito" th:text="${macchina.anno}"></span>
+            <span> <img th:src="@{'/display/image/' + ${macchina.immagineMaccchina.id}}"></span>
+        </div>
+      </div>   
     </body>
 </html>

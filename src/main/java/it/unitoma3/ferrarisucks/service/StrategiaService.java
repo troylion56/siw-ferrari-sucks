@@ -60,8 +60,8 @@ public class StrategiaService {
             model.addAttribute("hasComment", true);
         else
             model.addAttribute("hasComment", false);
-        model.addAttribute("review", new Commenti());
-        model.addAttribute("reviews", strategia.getReviews());
+        model.addAttribute("commento", new Commenti());
+        model.addAttribute("commenti", strategia.getReviews());
         return "strategia.html";    //per ora va qua da modificare 
     }
 

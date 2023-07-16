@@ -21,7 +21,7 @@ public class CommentiController {
 
 
     @Autowired
-    private StrategiaRepository movieRepository;
+    private StrategiaRepository strategiaRepository;
     @Autowired
     private StrategiaService movieService;
     @Autowired
@@ -31,20 +31,19 @@ public class CommentiController {
     @Autowired
     private GlobalController globalController;
 
-   @PostMapping("/user/uploadReview/{movieId}")
-    public String newReview(Model model, @Valid @ModelAttribute("commenti") Commenti review, BindingResult bindingResult, @PathVariable("stategyId") Long id) {
-        this.reviewValidator.validate(review,bindingResult);
-        Strategia movie = this.movieRepository.findById(id).get();
+   @PostMapping("/user/uploadReview/{strategiaId}")
+    public String newReview(Model model, @Valid @ModelAttribute("commenti") Commenti commenti, BindingResult bindingResult, @PathVariable("strategiaId") Long id) {
+        this.reviewValidator.validate(commenti,bindingResult);
+        Strategia strategia = this.strategiaRepository.findById(id).get();
         if(!bindingResult.hasErrors()){
-            if(this.globalController.getUser() != null && !movie.getReviews().contains(review)){
-                review.setAuthor(this.globalController.getUser().getUsername());
-                this.reviewRepository.save(review);
-                movie.getReviews().add(review);
+            if(this.globalController.getUser() != null && !strategia.getReviews().contains(commenti)){
+                commenti.setAuthor(this.globalController.getUser().getUsername());
+                this.reviewRepository.save(commenti);
+                strategia.getReviews().add(commenti);
             }
         }
-        this.movieRepository.save(movie);
+        this.strategiaRepository.save(strategia);
 
-        return this.movieService.function(model, movie, this.globalController.getUser());
+        return this.movieService.function(model, strategia, this.globalController.getUser());
     } 
-    
 }

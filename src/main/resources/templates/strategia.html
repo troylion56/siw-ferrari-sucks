@@ -45,6 +45,55 @@
             </div>
           </div>
         </div>
+
+        <div class="movie-review-content">
+          <div class="personal-review" th:unless="${hasComment}">
+            <form th:action="@{'/user/uploadReview/' + ${strategia.id}}" method="post" th:object="${commento}" class="form">
+              <div th:if="${#fields.hasGlobalErrors()}">
+                <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+              </div>
+              <div class="form-field">
+                <label for="title">Title</label>
+                <input required type="text" id="title" name="title" th:field="${commento.title}"> 
+                <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>
+              </div>
+              <div class="form-field">
+                <label for="text">Text</label>
+                <input required type="text" id="text" name="text" th:field="${commento.text}">
+                <span th:if="${#fields.hasErrors('text')}" th:errors="*{text}"></span>
+              </div>
+              <div class="form-field">
+                <button class="comment-button" type="submit">Commenta</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+
+        <div>
+          <div th:if="${commenti}">
+            <div th:unless="${commenti.isEmpty()}" class="other-review">
+              <h1 class="review-heading">Recensioni</h1>
+              <ul class="review-list">
+                <li th:each="rev : ${commenti}" class="review-item">
+                  <div class="review">
+                    <div class="header">
+                      <h2 class="review-title" th:text="${rev.title}"></h2>
+                    </div>
+                    <div class="autore">
+                      <span class="author-label">Autore:</span>
+                      <h3 class="review-author" th:text="${rev.author}"></h3>
+                    </div>
+                    <p class="review-text" th:text="${rev.text}"></p>
+                    <div class="bottom-label">
+
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
     </div>
   </body>
 </html>

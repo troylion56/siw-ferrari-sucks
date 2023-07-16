@@ -3,6 +3,7 @@ package it.unitoma3.ferrarisucks.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -45,5 +46,18 @@ public class CommentiController {
         this.strategiaRepository.save(strategia);
 
         return this.movieService.function(model, strategia, this.globalController.getUser());
-    } 
+    }
+    
+    
+
+    @GetMapping("/admin/deleteReview/{strategiaId}/{reviewId}")
+    public String removeReview(Model model, @PathVariable("strategiaId") Long movieId,@PathVariable("reviewId") Long reviewId){
+        Strategia movie = this.strategiaRepository.findById(movieId).get();
+        Commenti review = this.reviewRepository.findById(reviewId).get();
+
+        movie.getReviews().remove(review);
+        this.reviewRepository.delete(review);
+        this.strategiaRepository.save(movie);
+        return this.movieService.function(model, movie, this.globalController.getUser());
+    }
 }

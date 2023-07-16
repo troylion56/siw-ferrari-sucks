@@ -69,31 +69,29 @@
           </div>
         </div>
 
-
         <div>
           <div th:if="${commenti}">
-            <div th:unless="${commenti.isEmpty()}" class="other-review">
-              <h1 class="review-heading">Recensioni</h1>
-              <ul class="review-list">
-                <li th:each="rev : ${commenti}" class="review-item">
-                  <div class="review">
-                    <div class="header">
-                      <h2 class="review-title" th:text="${rev.title}"></h2>
-                    </div>
-                    <div class="autore">
-                      <span class="author-label">Autore:</span>
-                      <h3 class="review-author" th:text="${rev.author}"></h3>
-                    </div>
-                    <p class="review-text" th:text="${rev.text}"></p>
-                    <div class="bottom-label">
-
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
+              <div th:unless="${commenti.isEmpty()}" class="other-review">
+                  <h1 style="padding-top: 2%; font-size: 40px;">Recensioni</h1>
+                  <ul th:each="rev : ${commenti}">
+                      <div class="review">
+                          <div class="header">
+                              <h1 th:text="${rev.title}">.</h1>
+                              <h1 th:text="${rev.author}">.</h1>
+                          </div>
+                          <p th:text="${rev.text}">.</p>
+                          <div class="bottom-label">
+                              <button th:if="${role != null && role == 'ADMIN'}" class="delete-review">
+                                  <a th:href="'/admin/deleteReview/' + ${strategia.id} + '/' + ${rev.id}" class="log">
+                                      Delete
+                                  </a>
+                              </button>
+                          </div>
+                      </div>
+                  </ul>
+              </div>
           </div>
-        </div>
+      </div>
     </div>
   </body>
 </html>

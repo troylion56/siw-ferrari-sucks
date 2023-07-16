@@ -43,7 +43,7 @@ public class AuthenticationController {
             UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             Credentials credentials = credentialsService.getCredentials(userDetails.getUsername());
             if(credentials.getRole().equals(Credentials.ADMIN_ROLE)){
-                return "admin/homePageAdmin.html";
+                return "index.html";        //farlo diverso per l'admin
             } else {
                 return "index.html";
             }
@@ -71,7 +71,7 @@ public class AuthenticationController {
             credentials.setUser(user);
             credentialsService.saveCredentials(credentials);
             model.addAttribute("user", user);
-            return "index.html";
+            return "index.html";        //farlo diverso per l'admin
         }
         return "error.html";
     }
@@ -83,7 +83,7 @@ public class AuthenticationController {
     	UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     	Credentials credentials = credentialsService.getCredentials(userDetails.getUsername());
     	if (credentials.getRole().equals(Credentials.ADMIN_ROLE)) {
-            return "admin/indexAdmin.html";
+            return "index.html";
         }
         return "index.html";
     }

@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.ui.Model;
 import it.unitoma3.ferrarisucks.controller.validator.StrategiaValidator;
-import it.unitoma3.ferrarisucks.model.Macchina;
+
 import it.unitoma3.ferrarisucks.model.Strategia;
-import it.unitoma3.ferrarisucks.repository.MacchinaRepository;
+
 import it.unitoma3.ferrarisucks.service.MacchinaService;
 import it.unitoma3.ferrarisucks.service.StrategiaService;
 import jakarta.validation.Valid;
@@ -24,8 +24,6 @@ import jakarta.validation.Valid;
 public class StrategiaController {
 
 
-    @Autowired
-    private MacchinaRepository macchinaRepository ;
 
     @Autowired 
     private StrategiaValidator strategiaValidator;
@@ -78,23 +76,23 @@ public class StrategiaController {
 
     @GetMapping(value="/addMacchina/{id}")
 	public String addDirector(@PathVariable("id") Long id, Model model) {
-		model.addAttribute("strategia", macchinaService.findAllMacchine());
+		model.addAttribute("macchine", macchinaService.findAllMacchine());
 		Strategia macchina= strategiaService.findStrategiaId(id);
 		if(macchina!=null){
-	        model.addAttribute("macchina", macchina);
+	        model.addAttribute("strategia", macchina);
 		    return "test1.html";
-		}
+		} 
 		else{
 			return "test2.html";
 		}
 	}
 
-    @GetMapping(value="/setMacchinaToStrategia{machinaId}/{strategiaId}")
-	public String setDirectorToMovie(@PathVariable("machinaId") Long machinaId, @PathVariable("strategiaId") Long strategiaId, Model model) {
-		Strategia movie= this.strategiaService.saveMacchinaToStrategia(strategiaId, machinaId);
-		if(movie!=null){
-			model.addAttribute("movie", movie);
-		return "prova3.html";
+    @GetMapping(value="/setMacchinaToStrategia/{machinaId}/{strategiaId}")
+	public String saveMacchinaToStaregia(@PathVariable("machinaId") Long machinaId, @PathVariable("strategiaId") Long strategiaId, Model model) {
+		Strategia strategia= this.strategiaService.saveMacchinaToStrategia(strategiaId, machinaId);
+		if(strategia!=null){
+			model.addAttribute("strategia", strategia);
+		return "macchinaDettaglio.html";
 		}
 		else{
 			return "prova4.html";

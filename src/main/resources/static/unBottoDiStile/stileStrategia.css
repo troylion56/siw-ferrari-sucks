@@ -42,10 +42,10 @@ img{
 .img-item:hover{
     opacity: 0.8;
 }
-.product-content{
+.macchina-content{
     padding: 2rem 1rem;
 }
-.product-title{
+.macchina-title{
     font-size: 3rem;
     text-transform: capitalize;
     font-weight: 700;
@@ -53,7 +53,7 @@ img{
     color: #12263a;
     margin: 1rem 0;
 }
-.product-title::after{
+.macchina-title::after{
     content: "";
     position: absolute;
     left: 0;
@@ -77,43 +77,29 @@ img{
 .product-link:hover{
     opacity: 0.9;
 }
-.product-rating{
+.macchina-rating{
     color: #ffc107;
 }
-.product-rating span{
+.macchina-rating span{
     font-weight: 600;
     color: #252525;
 }
-.product-price{
-    margin: 1rem 0;
-    font-size: 1rem;
-    font-weight: 700;
-}
-.product-price span{
-    font-weight: 400;
-}
-.last-price span{
-    color: #f64749;
-    text-decoration: line-through;
-}
-.new-price span{
-    color: #256eff;
-}
-.product-detail h2{
+
+.macchina-detail h2{
     text-transform: capitalize;
     color: #12263a;
     padding-bottom: 0.6rem;
 }
-.product-detail p{
+.macchina-detail p{
     font-size: 0.9rem;
     padding: 0.3rem;
     opacity: 0.8;
 }
-.product-detail ul{
+.macchina-detail ul{
     margin: 1rem 0;
     font-size: 0.9rem;
 }
-.product-detail ul li{
+.macchina-detail ul li{
     margin: 0;
     list-style: none;
     background: url(shoes_images/checked.png) left center no-repeat;
@@ -123,7 +109,7 @@ img{
     font-weight: 600;
     opacity: 0.9;
 }
-.product-detail ul li span{
+.macchina-detail ul li span{
     font-weight: 400;
 }
 .purchase-info{
@@ -155,29 +141,7 @@ img{
 .purchase-info .btn:hover{
     opacity: 0.9;
 }
-.social-links{
-    display: flex;
-    align-items: center;
-}
-.social-links a{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    color: #000;
-    border: 1px solid #000;
-    margin: 0 0.2rem;
-    border-radius: 50%;
-    text-decoration: none;
-    font-size: 0.8rem;
-    transition: all 0.5s ease;
-}
-.social-links a:hover{
-    background: #000;
-    border-color: transparent;
-    color: #fff;
-}
+
 
 @media screen and (min-width: 992px){
     .card{
@@ -191,12 +155,12 @@ img{
         justify-content: center;
         align-items: center;
     }
-    .product-imgs{
+    .immagineMacchina{
         display: flex;
         flex-direction: column;
         justify-content: center;
     }
-    .product-content{
+    .macchina-content{
         padding-top: 0;
     }
 }

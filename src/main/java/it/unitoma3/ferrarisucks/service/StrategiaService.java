@@ -2,7 +2,7 @@ package it.unitoma3.ferrarisucks.service;
 
 import java.io.IOException;
 import java.util.HashSet;
-import java.util.List;
+
 import java.util.Set;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +29,7 @@ public class StrategiaService {
     @Autowired
     private StrategiaRepository strategiaRepository;
 
+    @Autowired
     private MacchinaRepository macchinaRepository;
 
 

@@ -16,7 +16,7 @@ import org.springframework.ui.Model;
 import it.unitoma3.ferrarisucks.controller.validator.Macchinavalidator;
 import it.unitoma3.ferrarisucks.model.Image;
 import it.unitoma3.ferrarisucks.model.Macchina;
-import it.unitoma3.ferrarisucks.model.Strategia;
+
 import it.unitoma3.ferrarisucks.repository.ImageRepository;
 import it.unitoma3.ferrarisucks.repository.MacchinaRepository;
 import it.unitoma3.ferrarisucks.service.MacchinaService;
@@ -39,7 +39,7 @@ public class MacchineController {
     @Autowired
     private MacchinaService macchinaService;
 
-    private GlobalController globalController;
+    
 
 	@GetMapping("/creaMacchina")
     public String forNewMacchina(Model model){
@@ -75,9 +75,8 @@ public class MacchineController {
 
 
     @GetMapping("/macchina/{id}")
-	public String getArtist(@PathVariable("id") Long id, Model model) {
-		model.addAttribute("artist", this.macchinaRepository.findById(id).get());
+	public String getMacchine(@PathVariable("id") Long id, Model model) {
+		model.addAttribute("macchina", this.macchinaRepository.findById(id).get());
 		return "macchinaDettaglio.html";
 	}
-
 }

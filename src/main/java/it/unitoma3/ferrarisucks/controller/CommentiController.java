@@ -21,7 +21,7 @@ import jakarta.validation.Valid;
 public class CommentiController {
 
 
-    @Autowired
+    @Autowired 
     private StrategiaRepository strategiaRepository;
     @Autowired
     private StrategiaService movieService;

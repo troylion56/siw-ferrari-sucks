@@ -16,30 +16,21 @@ import org.springframework.ui.Model;
 import it.unitoma3.ferrarisucks.controller.validator.Macchinavalidator;
 import it.unitoma3.ferrarisucks.model.Image;
 import it.unitoma3.ferrarisucks.model.Macchina;
-
-import it.unitoma3.ferrarisucks.repository.ImageRepository;
-import it.unitoma3.ferrarisucks.repository.MacchinaRepository;
+import it.unitoma3.ferrarisucks.service.ImageService;
 import it.unitoma3.ferrarisucks.service.MacchinaService;
 import jakarta.validation.Valid;
 
 @Controller
 public class MacchineController {
 
-
-
-    @Autowired
-    private MacchinaRepository macchinaRepository;
-
     @Autowired 
     private Macchinavalidator macchinavalidator;
 
     @Autowired
-    private ImageRepository imageRepository;
-
-    @Autowired
     private MacchinaService macchinaService;
 
-    
+    @Autowired
+    private ImageService imageService;
 
 	@GetMapping("/creaMacchina")
     public String forNewMacchina(Model model){
@@ -47,16 +38,16 @@ public class MacchineController {
         return "creaMacchina.html";
     }
 
-
     @PostMapping("/macchinaForm")
-    public String newArtist(Model model, @Valid @ModelAttribute("macchina") Macchina macchina, BindingResult bindingResult, @RequestParam("file") MultipartFile image) throws IOException {
+    public String neaMAcchina(Model model, @Valid @ModelAttribute("macchina") Macchina macchina, BindingResult bindingResult, @RequestParam("file") MultipartFile image) throws IOException {
         this.macchinavalidator.validate(macchina,bindingResult);
         if(!bindingResult.hasErrors()){
             Image picture = new Image(image.getBytes());
-            this.imageRepository.save(picture);
+            this.imageService.saveImage(picture);
             macchina.setImmagineMaccchina(picture);
 
-            this.macchinaRepository.save(macchina);
+            this.macchinaService.saveMAcchina(macchina);
+            
 
             model.addAttribute("macchina",macchina);
             return "macchinaDettaglio.html";
@@ -65,18 +56,15 @@ public class MacchineController {
         }
     }
 
-
-
     @GetMapping("/macchine")
 	public String getStrategie(Model model) {
     	model.addAttribute("macchine", this.macchinaService.findAllMAcchine());
     	return "macchinePeggiori.html"; 
 	}
 
-
     @GetMapping("/macchina/{id}")
 	public String getMacchine(@PathVariable("id") Long id, Model model) {
-		model.addAttribute("macchina", this.macchinaRepository.findById(id).get());
-		return "macchinaDettaglio.html";
+		model.addAttribute("macchina",  this.macchinaService.findMAcchinaByid(id).getId());    
+		return "macchinaDettaglio.html"; 
 	}
 }

@@ -1,19 +1,19 @@
-<html>
-    <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>dettaglio Macchina</title>
+    <title>Dettaglio Macchina</title>
+    <link rel="stylesheet" href="/unBottoDiStile/stileMacchinaDettaglio.css" />
 </head>
 
-    <body>
-        <h1>Dettagli MAcchina</h1>
-        <div class="container">
-        <div class="movie-details" th:if="${macchina}">
-            <span class="stategia-title" th:text="${macchina.modello}"></span>
-            <span class="stategia-circuito" th:text="${macchina.anno}"></span>
-            <span> <img th:src="@{'/display/image/' + ${macchina.immagineMaccchina.id}}"></span>
+<body>
+    <h1>Dettagli Macchina</h1>
+    <div class="container">
+        <div class="movie-details">
+            <span class="modello" th:text="${macchina.modello}"></span>
+            <span class="anno" th:text="${macchina.anno}"></span>
+            <img class="macchina-image" th:src="@{'/display/image/' + ${macchina.immagineMaccchina.id}}" />
         </div>
-      </div>   
-    </body>
+    </div>
+</body>
+
 </html>

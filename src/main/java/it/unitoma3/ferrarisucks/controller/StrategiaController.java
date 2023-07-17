@@ -23,23 +23,17 @@ import jakarta.validation.Valid;
 @Controller
 public class StrategiaController {
 
-
-
     @Autowired 
     private StrategiaValidator strategiaValidator;
 
     @Autowired
     private GlobalController globalController;
 
-
     @Autowired 
 	private StrategiaService strategiaService;
 
     @Autowired
     private MacchinaService macchinaService;
-
-
-
 
     @GetMapping("/strategie")
 	public String getStrategie(Model model) {
@@ -52,7 +46,6 @@ public class StrategiaController {
         model.addAttribute("strategia", new Strategia());
         return "creaPost.html";
     }
-
      
     @PostMapping("/strategiaForm")
 	public String newStrategia(Model model, @Valid @ModelAttribute("strategia") Strategia startegia, BindingResult bindingResult,
@@ -68,16 +61,14 @@ public class StrategiaController {
 
     @GetMapping("/stategia/{id}")
 	public String getStrategia(@PathVariable("id") Long id, Model model) {
-		Strategia strategia= strategiaService.findStrategiaId(id);
+		Strategia strategia= strategiaService.findStrategiaById(id);
 		return this.strategiaService.function(model, strategia, this.globalController.getUser());
 	}
 
-
-
     @GetMapping(value="/addMacchina/{id}")
-	public String addDirector(@PathVariable("id") Long id, Model model) {
+	public String addMacchina(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("macchine", macchinaService.findAllMacchine());
-		Strategia macchina= strategiaService.findStrategiaId(id);
+		Strategia macchina= strategiaService.findStrategiaById(id);
 		if(macchina!=null){
 	        model.addAttribute("strategia", macchina);
 		    return "macchinaaggiunto.html";
@@ -92,13 +83,10 @@ public class StrategiaController {
 		Strategia strategia= this.strategiaService.saveMacchinaToStrategia(strategiaId, machinaId);
 		if(strategia!=null){
 			model.addAttribute("strategia", strategia);
-		return "macchinaDettaglio.html";
+		return "index.html";
 		}
 		else{
 			return "prova4.html";
 		}
 	}
-	
-
-   
 }

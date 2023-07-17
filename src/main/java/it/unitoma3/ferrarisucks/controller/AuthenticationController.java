@@ -55,7 +55,7 @@ public class AuthenticationController {
         model.addAttribute("user", new User());
         model.addAttribute("credentials", new Credentials());
         return "registrazioneAccedi.html";
-    }
+    } 
 
     @PostMapping("/register")
     public String registerUser(@Valid @ModelAttribute("user") User user,
@@ -76,7 +76,6 @@ public class AuthenticationController {
         return "error.html";
     }
 
-
     @GetMapping(value = "/success")
     public String defaultAfterLogin(Model model) {
         
@@ -87,5 +86,4 @@ public class AuthenticationController {
         }
         return "index.html";
     }
-    
 }

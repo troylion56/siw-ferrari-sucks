@@ -37,7 +37,7 @@ public class StrategiaService {
         return this.strategiaRepository.findAll();
     }
 
-
+ 
     @Transactional
     public void createStrategia(Strategia strategia, MultipartFile image) throws IOException {
         Image strategiaImg = new Image(image.getBytes());
@@ -46,8 +46,6 @@ public class StrategiaService {
         strategia.setImage(strategiaImg);
         this.strategiaRepository.save(strategia);
     }
-
-
 
     public String function(Model model,Strategia strategia,UserDetails user){
         Set<Macchina> macchina = new HashSet<>();
@@ -62,9 +60,8 @@ public class StrategiaService {
             model.addAttribute("hasComment", false);
         model.addAttribute("commento", new Commenti());
         model.addAttribute("commenti", strategia.getReviews());
-        return "strategia.html";    //per ora va qua da modificare 
+        return "strategiaDettaglio.html";  
     }
-
 
     @Transactional
     public boolean alreadyReviewed(Set<Commenti> reviews,String author){
@@ -75,11 +72,7 @@ public class StrategiaService {
         return false;
     }
 
-
-    public Strategia findStrategiaId(Long id) {
-       return this.strategiaRepository.findAllById(id);
-    }
-
+   
     public Strategia saveMacchinaToStrategia(Long strategiaId, Long macchinaId){
         Strategia res= null;
         Macchina macchina = this.macchinaRepository.findById(macchinaId).orElse(null);
@@ -95,7 +88,6 @@ public class StrategiaService {
     public Strategia findStrategiaById(Long id){
         return this.strategiaRepository.findById(id).orElse(null);
     }
-
 
     public Strategia saveStrategia(Strategia strategia){
         return this.strategiaRepository.save(strategia);

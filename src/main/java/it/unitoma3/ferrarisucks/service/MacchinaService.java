@@ -34,4 +34,9 @@ public class MacchinaService {
     public Iterable<Macchina> findAllMacchine(){
         return macchinaRepository.findAll();
     }
+
+    public void saveMAcchina(Macchina macchina){
+        this.macchinaRepository.save(macchina);
+    }
+
 }

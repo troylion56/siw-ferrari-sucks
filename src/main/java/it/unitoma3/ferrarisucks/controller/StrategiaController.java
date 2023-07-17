@@ -80,7 +80,7 @@ public class StrategiaController {
 		Strategia macchina= strategiaService.findStrategiaId(id);
 		if(macchina!=null){
 	        model.addAttribute("strategia", macchina);
-		    return "test1.html";
+		    return "macchinaaggiunto.html";
 		} 
 		else{
 			return "test2.html";

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Scelta macchina</title>
+	<link rel="stylesheet" href="/css/stilemacchineAggiunto.css" />
+</head>
+
+<body>
+	<div class="container">
+		<div th:if="${macchine.isEmpty()}" class="empty-message">Non ci sono macchine disponibili.</div>
+		<ul class="macchine-list">
+			<li th:each="macchina : ${macchine}" class="macchina-item">
+				<a th:href="@{'/setMacchinaToStrategia/' + ${macchina.id} + '/' + ${strategia.id}}"
+					class="macchina-link">
+					<span class="macchina-modello" th:text="${macchina.modello}">Mio padre</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</body>
+
+</html>

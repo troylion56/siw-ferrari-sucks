@@ -1,0 +1,61 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* Stile di base per il body */
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f2f2f2;
+}
+
+/* Stile del contenitore principale */
+.container {
+	max-width: 800px;
+	margin: 20px auto;
+	padding: 20px;
+	background-color: #fff;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	border-radius: 4px;
+}
+
+/* Stile del messaggio di macchine vuote */
+.empty-message {
+	color: #888;
+	text-align: center;
+	padding: 10px;
+	margin-bottom: 20px;
+}
+
+/* Stile della lista delle macchine */
+.macchine-list {
+	list-style-type: none;
+}
+
+/* Stile degli elementi della lista */
+.macchina-item {
+	margin-bottom: 10px;
+}
+
+/* Stile del link della macchina */
+.macchina-link {
+	display: block;
+	padding: 10px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	background-color: #f9f9f9;
+	color: #333;
+	text-decoration: none;
+	transition: background-color 0.2s ease;
+}
+
+/* Stile del link della macchina al passaggio del mouse */
+.macchina-link:hover {
+	background-color: #e9e9e9;
+}
+
+/* Stile del modello della macchina */
+.macchina-modello {
+	font-weight: bold;
+}

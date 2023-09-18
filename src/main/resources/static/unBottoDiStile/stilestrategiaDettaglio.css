@@ -1,18 +1,67 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
 
+/* HEADER */
 *{
-    box-sizing: border-box;
-    padding: 0;
     margin: 0;
-    font-family: 'Open Sans', sans-serif;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial;
 }
+
+header{
+    width: 100%;
+    height: 75px;
+    padding: 1% 25px;
+    padding-right: 60px;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(255, 0, 0, 0.75);
+    opacity: 80%;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.5);
+    position: fixed;
+	z-index: 10;
+}
+
+header a{
+    text-decoration: none;
+    color: white;
+}
+
+#logo{
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    color: white;
+}
+
+.campoHeader{
+    padding-top: 10px;
+    font-size: 20px;
+}
+
+.campoHeader:hover{
+    color: yellow;
+}
+/* HEADER */
+
+
+
+
 body{
     line-height: 1.5;
+    background-color: #333;
 }
 .card-wrapper{
     max-width: 1100px;
-    margin: 0 auto;
+    margin: 50px auto;
+    color: white;
 }
+
+h2{
+    color: white;
+}
+
 img{
     width: 100%;
     display: block;
@@ -50,7 +99,7 @@ img{
     text-transform: capitalize;
     font-weight: 700;
     position: relative;
-    color: #12263a;
+    color: white;
     margin: 1rem 0;
 }
 .macchina-title::after{
@@ -82,12 +131,12 @@ img{
 }
 .macchina-rating span{
     font-weight: 600;
-    color: #252525;
+    color: white;
 }
 
 .macchina-detail h2{
     text-transform: capitalize;
-    color: #12263a;
+    color: white;
     padding-bottom: 0.6rem;
 }
 .macchina-detail p{
@@ -130,17 +179,97 @@ img{
 }
 .purchase-info .btn{
     cursor: pointer;
-    color: #fff;
+    color: white;
+    text-decoration: none;
+    border: 0.5px solid white;
 }
-.purchase-info .btn:first-of-type{
-    background: #256eff;
+
+.form{
+    background-color: #333;
+    border-radius: 10px;
+    padding: 10px 10px;
+    width: 100%;
 }
-.purchase-info .btn:last-of-type{
-    background: #f64749;
+
+.form input{
+    background-color: transparent;
+    border: 0.5px solid white;
+    height: 20px;
+    width: 50%;
+    padding: 20px 45px 20px 20px; 
+    color: white;
+    border-radius: 5px;
+    margin-top: 10px;
 }
-.purchase-info .btn:hover{
-    opacity: 0.9;
+
+.form input::placeholder{
+    color: white;
 }
+
+.form textarea::placeholder{
+    color: white;
+}
+
+.form textarea{
+    background-color: transparent;
+    border: 0.5px solid white;
+    height: 80px;
+    width: 100%;
+    padding: 20px 45px 20px 20px; 
+    color: white;
+    border-radius: 5px;
+    margin-top: 10px;
+    resize: none;
+}
+
+.form button{
+    background-color: transparent;
+    border-radius: 5px;
+    border: 0.5px solid white;
+    margin-top: 10px;
+    color: white;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.form span{
+    font-size: 20px;
+    text-wrap: bold;
+    color: white;
+}
+
+
+.review-heading{
+    margin-bottom: 20px;
+}
+
+.review-list{
+    margin-top: 20px;
+}
+
+#commenti{
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 20px;
+    color: white;
+    border: 0.5px solid white;
+}
+
+.review-text{
+    margin-top: 20px;
+}
+
+.log{
+    color: red;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.delete-review{
+    background-color: transparent;
+    padding: 5px;
+}
+
 
 
 @media screen and (min-width: 992px){
@@ -158,8 +287,7 @@ img{
         display: flex;
         flex-direction: column;
         justify-content: center;
+        padding: 0px 0px 120px 0px;
     }
-    .macchina-content{
-        padding-top: 0;
-    }
+
 }

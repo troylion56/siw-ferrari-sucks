@@ -1,104 +1,121 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Strategia</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/unBottoDiStile/stilestrategiaDettaglio.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
-  </head>
-  <body id="hero">
-    <div class = "card-wrapper" th:if="${strategia}">
-      <div class = "card">
-        <!-- card left -->
-        <div class = "immagineMacchina"> 
-          <div class = "img-display">
-            <div class = "img-showcase">
-              <img th:src="@{'/display/image/' + ${strategia.image.id}}" alt = "shoe image">
-            </div>
-          </div>
-        </div>
-        <!-- card right -->
-        <div class = "macchina-content">
-          <h2 class = "macchina-title"   th:text="${strategia.nome}"></h2>
-          <div class = "macchina-rating">
-            <i class = "fas fa-star"></i>
-            <i class = "fas fa-star"></i>
-            <i class = "fas fa-star"></i>
-            <i class = "fas fa-star"></i>
-            <i class = "fas fa-star-half-alt"></i>
-            <span>4.7(21)</span>
-          </div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous" />
+</head>
 
-          <div class = "macchina-detail">
-            <h2 th:text="${strategia.circuito}"></h2>
-            <p th:text="${strategia.descrizione}"></p>
-            <ul th:if="${strategia.macchina}">
-              <li>modello macchina: <span th:text="${strategia.macchina.modello}"></span></li>
-              <li>anno macchina: <span th:text="${strategia.macchina.anno}"></span></li>
-            </ul>
+<body id="hero">
+    <header>
+        <span id="logo">FERRARI MASTER MIND</span>
+        <a class="campoHeader" href="/">Home</a>
+        <a class="campoHeader" href="/strategie">Post</a>
+        <a class="campoHeader" href="/macchine">Macchine</a>
+        <a class="campoHeader" th:if="${userDetails}" href="/logout" data-after="esci"
+            th:text="${userDetails.username}"></a>
+        <a class="campoHeader" th:unless="${userDetails}" href="/registrazioneAccedi" data-after="registrazioneAccedi">Accedi</a>
+    </header>
 
-            <div class = "purchase-info" th:unless="${strategia.macchina}">
-              <a class = "btn" th:href="@{'/addMacchina/' + ${strategia.id}}">aggiungi</a>
-            </div>
-          </div>
-        </div>
+    <p><br></p>
 
-        <div class="movie-review-content">
-          <div class="personal-review" th:unless="${hasComment}">
-
-            <form id="form" th:action="@{'/user/uploadReview/' + ${strategia.id}}" method="post" th:object="${commento}" class="form">
-              <div th:if="${#fields.hasGlobalErrors()}">
-                <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
-              </div>
-              <label for="title">Titolo:</label>
-              <div class="form-field">
-                <input required type="text" id="title" name="title" th:field="${commento.title}"> 
-                <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>
-              </div>
-              <label for="text">Descrizione:</label>
-              <div class="form-field">
-                <textarea id="descrizione" name="text" th:field="${commento.text}"></textarea>
-                <span th:if="${#fields.hasErrors('text')}" th:errors="*{text}"></span>
-              </div>
-              <div class="form-field">
-                <button class="comment-button" type="submit">Commenta</button>
-              </div>
-            </form>
-
-          </div>
-        </div>
-
-
-        <div>
-          <div th:if="${commenti}">
-            <div th:unless="${commenti.isEmpty()}" class="other-review">
-              <h1 class="review-heading">Recensioni</h1>
-              <ul class="review-list">
-                <li th:each="rev : ${commenti}" class="review-item">
-                  <div id="commenti">
-                    <div class="header">
-                      <h2 class="review-title" th:text="${rev.title}"></h2>
+    <div class="card-wrapper" th:if="${strategia}">
+        <div class="card">
+            <!-- card left -->
+            <div class="immagineMacchina">
+                <div class="img-display">
+                    <div class="img-showcase">
+                        <img th:src="@{'/display/image/' + ${strategia.image.id}}" alt="shoe image">
                     </div>
-                    <div class="autore">
-                      <span class="author-label">Autore:</span>
-                      <h3 class="review-author" th:text="${rev.author}"></h3>
-                    </div>
-                    <p class="review-text" th:text="${rev.text}"></p>
-                    <div class="bottom-label">
-                      <button th:if="${role != null && role == 'ADMIN'}" class="delete-review">
-                        <a th:href="'/admin/deleteReview/' + ${strategia.id} + '/' + ${rev.id}" class="log">
-                            Delete
-                        </a>
-                      </button>
-                    </div>
-                  </div>
-                </li>
-              </ul>
+                </div>
             </div>
-          </div>
+            <!-- card right -->
+            <div class="macchina-content">
+                <h2 class="macchina-title" th:text="${strategia.nome}"></h2>
+                <div class="macchina-rating">
+                </div>
+
+                <div class="macchina-detail">
+                    <h2 th:text="${strategia.circuito}"></h2>
+                    <p th:text="${strategia.descrizione}"></p>
+                    <ul th:if="${strategia.macchina}">
+                        <li>modello macchina: <span th:text="${strategia.macchina.modello}"></span></li>
+                        <li>anno macchina: <span th:text="${strategia.macchina.anno}"></span></li>
+                    </ul>
+
+                    <div class="purchase-info" th:unless="${strategia.macchina}">
+                        <a class="btn" th:href="@{'/addMacchina/' + ${strategia.id}}">aggiungi macchina</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="areaCommenti">
+                <div class="movie-review-content">
+                    <div class="personal-review" th:unless="${hasComment}">
+
+                        <form id="form" th:action="@{'/user/uploadReview/' + ${strategia.id}}" method="post"
+                            th:object="${commento}" class="form">
+                            <span>Lascia il tuo commento</span>
+                            <div th:if="${#fields.hasGlobalErrors()}">
+                                <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+                            </div>
+                            <div class="form-field">
+                                <input required type="text" id="title" name="title" th:field="${commento.title}"
+                                    placeholder="Titolo">
+                                <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>
+                            </div>
+                            <div class="form-field">
+                                <textarea id="descrizione" name="text" th:field="${commento.text}"
+                                    placeholder="Commento"></textarea>
+                                <span th:if="${#fields.hasErrors('text')}" th:errors="*{text}"></span>
+                            </div>
+                            <div class="form-field">
+                                <button class="comment-button" type="submit">Commenta</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+
+                <div>
+                    <div th:if="${commenti}">
+                        <div th:unless="${commenti.isEmpty()}" class="other-review">
+                            <h1 class="review-heading">Recensioni</h1>
+                            <ul class="review-list">
+                                <li th:each="rev : ${commenti}" class="review-item">
+                                    <div id="commenti">
+                                        <div class="header">
+                                            <h2 class="review-title" th:text="${rev.title}"></h2>
+                                        </div>
+                                        <div class="autore">
+                                            <span class="author-label">Autore:</span>
+                                            <span class="review-author" th:text="${rev.author}"></span>
+                                        </div>
+                                        <p class="review-text" th:text="${rev.text}"></p>
+                                        <div class="bottom-label">
+                                            <button th:if="${role != null && role == 'ADMIN'}"
+                                                class="delete-review">
+                                                <a th:href="'/admin/deleteReview/' + ${strategia.id} + '/' + ${rev.id}"
+                                                    class="log">
+                                                    Delete
+                                                </a>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-  </body>
+</body>
+
 </html>

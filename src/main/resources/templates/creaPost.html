@@ -8,67 +8,52 @@
     </head>    
     <body>
       
-   <!-- Header -->
-  <section id="header">
-    <div class="header container">
-      <div class="nav-bar">
-        <div class="brand">
-          <a href="#hero">
-            <h1><span>F</span>err<span>a</span>ri</h1>
-          </a>
-        </div>
-        <div class="nav-list">
-          <div class="hamburger">
-            <div class="bar"></div>
-          </div>
-          <ul>
-            <li><a href="#hero" data-after="Home">Home</a></li>
-            <li><a href="#post" data-after="post">Post</a></li>
-            <li><a href="#macchineFallimentari" data-after="macchineFallimentari">MAcchine</a></li>
-            <li><a href="/registrazioneAccedi" data-after="registrazioneAccedi">Accedi</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- End Header -->
+      <header>
+        <span id="logo">FERRARI MASTER MIND</span>
+        <a class="campoHeader" href="/">Home</a>
+        <a class="campoHeader" href="/strategie">Post</a>
+        <a class="campoHeader" href="/macchine">Macchine</a>
+        <a class="campoHeader" th:if="${userDetails}" href="/logout" data-after="esci" th:text="${userDetails.username}"></a>
+        <a class="campoHeader" th:unless="${userDetails}" href="/registrazioneAccedi" data-after="registrazioneAccedi">Accedi</a>
+      </header>
       
-    <!-- Hero Section  -->
-  <section id="hero">
-    <div class="hero container">
+      <p><br></p>
 
-  <!-- End Hero Section  -->
-          <h1 id="aggiungi-post"> <span class=rosso>A</span>GGIUNGI UN <span class=rosso>P</span>OST</h1>
-      
+
+        <section id="hero">
+          <div class="hero container">
+  
+            
             <form th:action="@{/strategiaForm}" method="POST" enctype="multipart/form-data" th:object="${strategia}"   class="form-post" >
+              <h1 id="aggiungi-post"> <span class=rosso>A</span>GGIUNGI UN <span class=rosso>P</span>OST</h1>
+
               <div th:if="${#fields.hasGlobalErrors()}">
                 <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p> 
               </div>
 
               <div class="form-field">
-                <label>Nome:</label> 
-                <span><input type="text" th:field="${strategia.nome}"  /></span>
+                <input type="text" th:field="${strategia.nome}"  placeholder="Titolo" required/>
                 <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
                 </span>
               </div> 
           
               <div class="form-field">
-                <label>Circuito:</label> 
-                <span><input type="text" th:field="${strategia.circuito}" /></span>
+                <input type="text" th:field="${strategia.circuito}" placeholder="Circuito" required/>
                 <span th:if="${#fields.hasErrors('circuito')}" th:errors="*{circuito}"></span>
                   </span>
               </div>
 
               <div class="form-field">
-                <label>Descrizione:</label> 
-                <span><input type="text" th:field="${strategia.descrizione}"/></span>
+                <textarea name="descrizione" th:field="${strategia.descrizione}" placeholder="Descrizione"></textarea>
                 <span th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></span>
                   </span>
-                <span><input required type="file" name="file"></span>
+                  <span>Scegli un immagine per il tuo post</span>
+                <input required type="file" name="file" >
                 </div>
-                <span><button type="submit" >Conferma</button></span>
-                </div>
+                <button type="submit" >Conferma</button>
             </form>
-          </section>        
+
+          </div>
+        </section>        
     </body>
 </html>

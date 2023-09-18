@@ -33,14 +33,20 @@
 
                 <div class="blog-post_info"> 
                     <div class="blog-post_date">
-                        <span th:text="${strategia.nome}"></span>
-                        <span th:text="${strategia.circuito} "></span>
+                        <div class="titolo">
+                            <span>Titolo: </span>
+                            <span th:text="${strategia.nome}"></span>
+                        </div>
+                        <div class="circuito">
+                            <span>Circuito: </span>
+                            <span th:text="${strategia.circuito} "></span>
+                        </div>
                     </div>
                     
-                    <p class="blog-post_text">
-                        Descrizione </p>
+                </div>
+                <div class="pulsante">
                     <a th:href="@{'/stategia' + '/' + ${strategia.id}}"  class="blog-post_cta">Di piu</a>    
-                    </div>
+                </div>
                 </div>
            </div>
         </div>

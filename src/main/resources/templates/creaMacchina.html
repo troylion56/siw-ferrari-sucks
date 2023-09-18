@@ -8,53 +8,38 @@
     </head>    
     <body>
       
-   <!-- Header -->
-  <section id="header">
-    <div class="header container">
-      <div class="nav-bar">
-        <div class="brand">
-          <a href="#hero">
-            <h1><span>F</span>err<span>a</span>ri</h1>
-          </a>
-        </div>
-        <div class="nav-list">
-          <div class="hamburger">
-            <div class="bar"></div>
-          </div>
-          <ul>
-            <li><a href="#hero" data-after="Home">Home</a></li>
-            <li><a href="#post" data-after="post">Post</a></li>
-            <li><a href="#macchineFallimentari" data-after="macchineFallimentari">MAcchine</a></li>
-            <li><a href="/registrazioneAccedi" data-after="registrazioneAccedi">Accedi</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- End Header -->
+      <header>
+        <span id="logo">FERRARI MASTER MIND</span>
+        <a class="campoHeader" href="/">Home</a>
+        <a class="campoHeader" href="/strategie">Post</a>
+        <a class="campoHeader" href="/macchine">Macchine</a>
+        <a class="campoHeader" th:if="${userDetails}" href="/logout" data-after="esci"
+            th:text="${userDetails.username}"></a>
+        <a class="campoHeader" th:unless="${userDetails}" href="/registrazioneAccedi" data-after="registrazioneAccedi">Accedi</a>
+    </header>
+
+    <p><br></p>
       
     <!-- Hero Section  -->
   <section id="hero">
     <div class="hero container">
  
   <!-- End Hero Section  -->
-          <h1 id="aggiungi-post"> <span class=rosso>A</span>GGIUNGI UNA <span class=rosso>Macc</span>hina</h1>
-      
-            <form th:action="@{/macchinaForm}" method="POST" enctype="multipart/form-data" th:object="${macchina}"   class="form-post" >
+  
+  <form th:action="@{/macchinaForm}" method="POST" enctype="multipart/form-data" th:object="${macchina}"   class="form-post" >
+              <h1 id="aggiungi-post"> <span class=rosso>A</span>GGIUNGI UNA <span class=rosso>MACC</span>HINA</h1>
               <div th:if="${#fields.hasGlobalErrors()}">
                 <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p> 
               </div>
 
               <div class="form-field">
-                <label>modello:</label> 
-                <span><input type="text" th:field="${macchina.modello}"  /></span>
+                <span><input type="text" th:field="${macchina.modello}"  placeholder="Modello"></span>
                 <span th:if="${#fields.hasErrors('modello')}" th:errors="*{modello}"></span>
                 </span>
               </div> 
           
               <div class="form-field">
-                <label>Anno:</label> 
-                <span><input type="text" th:field="${macchina.anno}" /></span>
+                <span><input type="text" th:field="${macchina.anno}" placeholder="Anno"/></span>
                 <span th:if="${#fields.hasErrors('anno')}" th:errors="*{anno}"></span>
                   </span>
                 <span><input required type="file" name="file"></span>

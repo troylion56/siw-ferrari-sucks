@@ -7,6 +7,19 @@
 </head>
 
 <body>
+	<header>
+        <span id="logo">FERRARI MASTER MIND</span>
+        <a class="campoHeader" href="/">Home</a>
+        <a class="campoHeader" href="/strategie">Post</a>
+        <a class="campoHeader" href="/macchine">Macchine</a>
+        <a class="campoHeader" th:if="${userDetails}" href="/logout" data-after="esci"
+            th:text="${userDetails.username}"></a>
+        <a class="campoHeader" th:unless="${userDetails}" href="/registrazioneAccedi" data-after="registrazioneAccedi">Accedi</a>
+    </header>
+
+    <p><br></p>
+
+
 	<div class="container">
 		<div th:if="${macchine.isEmpty()}" class="empty-message">Non ci sono macchine disponibili.</div>
 		<ul class="macchine-list">

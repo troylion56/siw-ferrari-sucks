@@ -27,23 +27,27 @@
 
         <span class="titolo">Macchine peggiori</span>
 
-        <div th:each="macchina : ${macchine}" class="blog-post"  >
+        <div th:each="macchina : ${macchine}" class="blog-post">
+
             <div class="blog-post_img">;
                 <img th:src="@{'/display/image/' + ${macchina.immagineMaccchina.id}}" alt="">
             </div>
+
             <div class="blog-post_info">  
                 <div class="modello">
                     <span>Modello: </span>
                     <span class="modello" th:text="${macchina.modello}"></span>
                 </div>
+
                 <div class="anno">
                     <span>Anno: </span>
                     <span class="anno" th:text="${macchina.anno}"></span>
                 </div>
+
             </div>
         </div>
         
-        <a href="/creaMacchina" button class="btn-new-post"> <h1 class="section-title">+</h1> </button> </a>
+        <a th:if="${role!=null && role=='ADMIN'}" href="/creaMacchina" button class="btn-new-post"> <h1 class="section-title">+</h1> </button> </a>
     </div>
 </body>
 

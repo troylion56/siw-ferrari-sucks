@@ -50,7 +50,7 @@
                     </ul>
 
                     <div class="purchase-info" th:unless="${strategia.macchina}">
-                        <a class="btn" th:href="@{'/addMacchina/' + ${strategia.id}}">aggiungi macchina</a>
+                        <a th:if="${role!=null && role=='ADMIN'}" class="btn" th:href="@{'/addMacchina/' + ${strategia.id}}">aggiungi macchina</a>
                     </div>
                 </div>
             </div>

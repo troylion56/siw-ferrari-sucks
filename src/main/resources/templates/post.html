@@ -51,7 +51,7 @@
            </div>
         </div>
         
-        <a href="/creaStrategia" button class="btn-new-post"> <h1 class="section-title">+</h1> </button> </a>
+        <a th:if="${role!=null && role=='ADMIN'}" href="/creaStrategia" button class="btn-new-post"> <h1 class="section-title">+</h1> </button> </a>
     </div>
 </body>
 
